@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hello React!</title>
+<style>
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background: rgb(249,219,61);
+  color: rgb(47,47,65);
+}
+h1 {
+  font-weight: 700;
+  font-size: 3em;
+  text-transform: uppercase;
+}
+button {
+  border: none;
+  padding: 20px 40px;
+  margin: 10px;
+  background-color: rgba(255,255,255,.5);
+  cursor: pointer;
+}
+.container {
+  padding: 40px;
+  width: 70%;
+  margin: 0 auto;
+}
+.progress {
+  display: block;
+  margin-bottom: 10px;
+}
+.progress div {
+  display: inline-block;  
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border: 5px solid rgba(255,255,255,.8);
+  border-radius: 50%;
+}
+.progress div.on {
+  background: rgba(255,255,255,.5);
+}
+.progress div.off {
+  background: transparent;
+}
+.questions {
+  width: 80%;
+}
+.question {
+  font-size: 2em;
+}
+.answer {
+  font-size: 1em;
+}
+.answer.selected {
+
+}
+.answer.correct {
+
+}
+ng-view.ng-enter, [ng-view].ng-enter {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  transition: opacity 1s, transform 1s ease-in-out;
+}
+ng-view.ng-enter-active, [ng-view].ng-enter-active {
+  opacity: 1;
+  transform: scale(1,1);
+}
+/* if this doesn't work, put ng-animate-children directive on same div as ng-view */
+
+/* do this for the lists to make the elements slide in... */
+
+.classnameOfNgRepeatListItem.ng-enter,
+.classnameOfNgRepeatListItem.ng-leave {
+  transition: transform 750ms;
+}
+.classnameOfNgRepeatListItem.ng-enter,
+.classnameOfNgRepeatListItem.ng-leave-active {
+  transform: translate3d(-100%, 0, 0);
+}
+.classnameOfNgRepeatListItem.ng-enter-active {
+  transform: translate3d(0, 0, 0);
+}
+/* this is to stagger the individual list items so they don't enter and leave at the same time */
+.ng-enter-stagger,
+.ng-leave-stagger {
+  transition-delay: 200ms;
+  transition-duration: 0;
+}
+@keyframes slide-in {
+  0%   { opacity: 0; transform: translate3d(100%, 0, 0); }
+  100% { opacity: 1; transform: none; }
+}
+* {
+  animation: slide-in 1s;
+}
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="bundle.js"></script>
+</body>
+</html>
