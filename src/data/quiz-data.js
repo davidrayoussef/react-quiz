@@ -27,7 +27,7 @@ export const questions = [
 		"answers": [
 			"A function having access to the parent scope, even after the parent function has closed.",
 			"A stateful function; a function that preserves state.",
-			"An outer function that returns an inner function that's bound to the outer function's enviornment",
+			"An outer function that returns an inner function that's bound to the outer function's enviornment.",
 			"All of the above."
 		],
 		"correct": 3
