@@ -64,7 +64,7 @@ ul, li {
   background: transparent;
 }
 .questions {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
 }
 .question {
@@ -76,26 +76,30 @@ ul, li {
 .question-answer {
   padding: 2%;
   cursor: pointer;
-  transition: background .5s;
+  border: 4px solid transparent;
+  transition: all .2s;
+  margin-bottom: 15px;
 }
 .question-answer:hover {
-  background: rgba(0,0,0,.075);
+  border-color: rgba(0,0,0,.075);
 }
 .answer {
   font-size: 1em;
 }
-.answer.selected {
-
-}
-.answer.correct {
-
+.score-container {
+  position: fixed;
+  width: 20%;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
 }
 @keyframes slide-in {
-  0%   { opacity: 0; transform: translate3d(5%, 0, 0); }
+  0%   { opacity: 0; transform: translate3d(3%, 0, 0); }
   100% { opacity: 1; transform: none; }
 }
 * {
-  animation: slide-in 1s;
+  animation: slide-in .8s;
 }
 </style>
 </head>

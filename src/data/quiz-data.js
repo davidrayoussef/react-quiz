@@ -3,20 +3,20 @@ export const questions = [
 		"id": 0,
 		"question": "Which of the following is true about reflows and a repaints?",
 		"answers": [
-			"They're the same thing.", 
+			"They're the same thing.",
 			"Repaints (or redraws) occur when elements change their visual styles but not layout.",
 			"Reflows compute layout, are more performance critical, and occur when elements are inserted, removed, moved, animated, etc.",
-			"The previous two answers are correct."				
+			"The previous two answers are correct."
 		],
 		"correct": 3
 	},
 	{
-		"id": 1,		
+		"id": 1,
 		"question": "What are the three types of JavaScript errors?",
 		"answers": [
 			"Parse Errors, Syntax Errors and Runtime Errors",
 			"Loading Errors, Runtime Errors and Logic Errors",
-			"Syntax Errors, Logic Errors and Loading Errors",		
+			"Syntax Errors, Logic Errors and Loading Errors",
 			"Bad Errors, Very Bad Errors, and Fatal Errors"
 		],
 		"correct": 1
@@ -39,18 +39,18 @@ export const questions = [
 			"When currying or implementing partial application.",
 			"To emulate private methods.",
 			"Counting events.",
-			"All of the above."				
+			"All of the above."
 		],
 		"correct": 3
 	},
 	{
 		"id": 4,
-		"question": "Which of these is a problem you can solve with the bind, call, or apply methods?",
+		"question": "Which of these is a use case for the bind, call, or apply methods?",
 		"answers": [
 			"If you're using the map method to run a function on an array and you need to preserve the THIS context, you can use bind.",
 			"You can use call or apply to borrow methods from other objects.",
-			"You can use bind for partial function application.",		
-			"All of the above."				
+			"You can use bind for partial function application.",
+			"All of the above."
 		],
 		"correct": 3
 	},
@@ -61,7 +61,7 @@ export const questions = [
 			"Returns a function that, when executed, will call the original function with a THIS context that you pass in.",
 			"Prevents the value of this from being overridden by call() or apply().",
 			"Answer 3",
-			"Answer 4"				
+			"Answer 4"
 		],
 		"correct": 3
 	},
@@ -71,8 +71,8 @@ export const questions = [
 		"answers": [
 			"With Object.create().",
 			"With class Sub extends Super in ES2015.",
-			"Using Parent.method.call inside Child.prototype.method.",				
-			"All of the above."				
+			"Using Parent.method.call inside Child.prototype.method.",
+			"All of the above."
 		],
 		"correct": 3
 	},
@@ -82,8 +82,8 @@ export const questions = [
 		"answers": [
 			"An object that represents a possible future value.",
 			"An object that's used for deferred and asynchronous computations.",
-			"A proxy for a value that will eventually become available.",				
-			"All of the above."				
+			"A proxy for a value that will eventually become available.",
+			"All of the above."
 		],
 		"correct": 3
 	},
@@ -96,7 +96,7 @@ export const questions = [
 			"Answer 3",
 			"Answer 4"
 		],
-		"correct": 3
+		"correct": 0
 	},
 	{
 		"id": 9,
@@ -116,7 +116,7 @@ export const questions = [
 			"Used to change $scope values and trigger a digest cycle.",
 			"Useful for when changes occur outside of Angular.",
 			"Answer 3",
-			"Answer 4"	
+			"Answer 4"
 		],
 		"correct": 3
 	},
@@ -138,13 +138,13 @@ export const questions = [
 			"Scope that's unique to the directive and is not affected by anything outside of it (aside from bindings)",
 			"Answer 2",
 			"Answer 3",
-			"Answer 4"							
+			"Answer 4"
 		],
-		"correct": 3
+		"correct": 0
 	},
 	{
 		"id": 13,
-		"question": "Which is an isolate scope property choices in Angular?",
+		"question": "Which is an isolate scope property choice in Angular?",
 		"answers": [
 			"@ (Attribute observer)",
 			"& (Expression builder)",
@@ -152,7 +152,7 @@ export const questions = [
 			"All of the above."
 		],
 		"correct": 3
-	},	
+	},
 	{
 		"id": 14,
 		"question": "What is a way to improve performance in an Angular app?",
@@ -193,52 +193,52 @@ export const questions = [
 			"An Angular feature that takes an element and gives it new functionality.",
 			"A reusable component.",
 			"A combination of HTML and JavaScript that will execute together.",
-			"ngIf, ngHide, ngShow, ngRepeat, ngClick, ngClass, ngModel"
+			"All of the above."
 		],
-		"correct": 3
+		"correct": 0
 	},
 	{
 		"id": 18,
-		"question": "What's strict mode?",
+		"question": "What does strict mode do?",
 		"answers": [
 			"Makes code more optimizable.",
 			"Adds restrictions to prevent errors.",
-			"Prevents the use of global variables.",
-			"Prevents the use of dangerous code like with and eval."
+			"Prevents the use of global variables and the use of dangerous code like 'with' and 'eval'.",
+			"All of the above."
 		],
 		"correct": 3
 	},
 	{
-		"id": 20,
+		"id": 19,
 		"question": "What is event bubbling?",
 		"answers": [
 			"When the browser engine goes up the DOM tree looking for events.",
 			"When the browser engine goes down the DOM tree looking for events.",
 			"Answer 3",
-			"Anser 4"
+			"Answer 4"
 		],
-		"correct": 3
+		"correct": 0
 	},
 	{
-		"id": 21,
+		"id": 20,
 		"question": "What is event delegation?",
 		"answers": [
 			"Attaching event handlers to a parent element rather than multiple child elements.",
 			"Answer 2",
 			"Answer 3",
-			"Anser 4"			
+			"Answer 4"
 		],
-		"correct": 3
+		"correct": 0
 	},
 	{
 		"id": 21,
 		"question": "What is dependency injection?",
 		"answers": [
+			"There's no such thing.",
+			"A type of data structure.",
 			"A coding pattern in which a class receives the instances of objects it needs from an external source rather than creating them itself.",
-			"Answer 2",
-			"Answer 3",
-			"Anser 4"			
+			"A new drug the kids are doing nowadays."
 		],
-		"correct": 3
+		"correct": 2
 	}
 ]

@@ -1,25 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class QuizApp extends React.Component {
+class QuizApp extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      // questions: this.shuffleQuestions(questions),
+      questions: this.props.questions,
       userAnswers: [],
-      step: 0
+      step: 0,
+      score: 0
     };
 
+    this.handleAnswerClick = this.handleAnswerClick.bind(this);
+    this.nextStep = this.nextStep.bind(this);
   }
 
   nextStep() {
     this.setState({
-      step: this.state.step++
+      step: this.state.step + 1,
+      score: this.state.score + 1
     });
   }
 
   handleAnswerClick(e) {
-    console.table(e);
-    // if question is right,
+    let isCorrect = this.state.questions[this.state.step].answers[this.state.questions[this.state.step].correct] === e.target.innerText;
+    if (isCorrect) {
+      e.target.style.borderColor = 'rgba(135,211,124,.5)';
+      this.nextStep();
+    } else {
+      e.target.style.borderColor = 'rgba(236,100,75,.5)';
+    }
   }
 
   setAnswer(event) {
@@ -39,43 +49,45 @@ class QuizApp extends React.Component {
     return result;
   }
 
-  countScore() {
-    let score = 0;
-
-    Object.keys(this.state.questions).map((question, index) => {
-      if (this.isCorrect(index)) {
-        score += 1;
-      }
-    });
-
-    return score;
-  }
-
   render() {
     return (
-      <div className="questions">
-        <h1>JavaScript Quiz</h1>
-        <QuestionList
-          questions={this.props.questions}
-          handleAnswerClick={this.handleAnswerClick}
-        />
+      <div className="wrapper">
+        <div className="questions">
+          <h1>JavaScript Quiz</h1>
+          <QuestionList
+            questions={this.state.questions}
+            handleAnswerClick={this.handleAnswerClick}
+          />
+        </div>
+        <div className="score-container">
+          <h2>Current Score</h2>
+          <div className="score">{this.state.score}</div>
+        </div>
       </div>
     );
   }
 }
 
-class QuestionList extends React.Component {
+class QuestionList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      questions: this.props.questions
+    };
+  }
   render() {
+    let { handleAnswerClick } = this.props;
     return (
       <div className="question-list">
-        { this.props.questions.map((question, index) => {
+        { this.state.questions.map((question, index) => {
           return (
             <Question
               key={question.id}
               index={question.id}
+              questions={this.state.questions}
               question={question.question}
               answers={question.answers}
-              handleAnswerClick={this.props.handleAnswerClick}
+              handleAnswerClick={handleAnswerClick}
             />
           );
         })}
@@ -84,9 +96,16 @@ class QuestionList extends React.Component {
   }
 }
 
-class Question extends React.Component {
+class Question extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      questions: this.props.questions
+    };
+  }
   render() {
-    let { id, question, answers, handleAnswerClick } = this.props;
+    let { id, question, answers, handleAnswerClick} = this.props;
     return (
       <li id={id} className="question">
         <h2 className="question-title">
@@ -98,6 +117,7 @@ class Question extends React.Component {
               <Answer
                 key={index}
                 index={index}
+                questions={this.state.questions}
                 answer={answer}
                 handleAnswerClick={handleAnswerClick}
               />
@@ -112,12 +132,23 @@ Question.propTypes = {
   setAnswer: React.PropTypes.func
 };
 
-class Answer extends React.Component {
+class Answer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      questions: this.props.questions
+    }
+  }
   render() {
-  let { answer, handleAnswerClick } = this.props;
+    let { answer, handleAnswerClick } = this.props;
+    let { questions } = this.state;
     return (
-      <li className="question-answer" onClick={handleAnswerClick}>
-        {answer}
+      <li
+        questions={questions}
+        className="question-answer"
+        onClick={handleAnswerClick}>
+          {answer}
       </li>
     );
   }
