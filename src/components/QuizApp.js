@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
+import shuffleQuestions from '../helpers/shuffleQuestions';
+import { questions } from '../data/quiz-data';
+
+const QUESTIONS = shuffleQuestions(questions);
 
 class QuizApp extends Component {
   constructor(props) {
-    super(props);
+    super();
 
     this.state = {
-      questions: this.props.questions,
+      questions: QUESTIONS,
       userAnswers: [],
       step: 0,
-      score: 0
+      score: 0,
+      totalQuestions: QUESTIONS.length
     };
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
@@ -16,52 +21,45 @@ class QuizApp extends Component {
   }
 
   nextStep() {
+    let restOfQuestions = this.state.questions.slice(1);
     this.setState({
       step: this.state.step + 1,
-      score: this.state.score + 1
+      score: this.state.score + 1,
+      questions: restOfQuestions
     });
   }
 
   handleAnswerClick(e) {
-    let isCorrect = this.state.questions[this.state.step].answers[this.state.questions[this.state.step].correct] === e.target.innerText;
+    let { questions, step } = this.state;
+    let isCorrect = questions[0].answers[questions[0].correct] === e.target.innerText;
     if (isCorrect) {
-      e.target.style.borderColor = 'rgba(135,211,124,.5)';
-      this.nextStep();
+      e.target.style.background = 'rgba(135,211,124,.5)';
+      setTimeout(this.nextStep, 2000);
     } else {
-      e.target.style.borderColor = 'rgba(236,100,75,.5)';
+      e.target.style.background = 'rgba(236,100,75,.5)';
     }
-  }
-
-  setAnswer(event) {
-    // this.state.userAnswers[this.state.step] = this.state.userAnswers[this.state.step] || [];
-    this.state.userAnswers[this.state.step][event.target.value] = event.target.checked;
-  }
-
-  isCorrect(index) {
-    let result = true;
-
-    Object.keys(this.state.questions[index].answers).map((answer, answerIndex) => {
-      if (!this.state.userAnswers[index] || answer.isRight != this.state.userAnswers[index][value]) {
-        result = false;
-      }
-    });
-
-    return result;
   }
 
   render() {
     return (
       <div className="wrapper">
-        <div className="questions">
+        <header>
+          <div className="question-count">
+            <h2>Question <span className="question-number">{this.state.step + 1}</span> of<span className="total-question-number">{this.state.totalQuestions}</span>
+            </h2>
+          </div>
           <h1>JavaScript Quiz</h1>
+          <div className="score-container">
+            <h2>Score</h2>
+            <div className="score">{this.state.score}</div>
+          </div>
+        </header>
+        <div className="questions">
           <QuestionList
             questions={this.state.questions}
             handleAnswerClick={this.handleAnswerClick}
+            step={this.state.step}
           />
-        </div>
-        <div className="score-container">
-          <h2>Current Score</h2>
-          <div className="score">{this.state.score}</div>
         </div>
       </div>
     );
@@ -71,23 +69,21 @@ class QuizApp extends Component {
 class QuestionList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      questions: this.props.questions
-    };
   }
   render() {
     let { handleAnswerClick } = this.props;
     return (
       <div className="question-list">
-        { this.state.questions.map((question, index) => {
+        { this.props.questions.map((question, index) => {
           return (
             <Question
-              key={question.id}
-              index={question.id}
-              questions={this.state.questions}
+              key={question.question}
+              index={index}
+              questions={this.props.questions}
               question={question.question}
               answers={question.answers}
               handleAnswerClick={handleAnswerClick}
+              step={this.props.step}
             />
           );
         })}
@@ -99,15 +95,11 @@ class QuestionList extends Component {
 class Question extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      questions: this.props.questions
-    };
   }
   render() {
-    let { id, question, answers, handleAnswerClick} = this.props;
+    let { question, answers, handleAnswerClick} = this.props;
     return (
-      <li id={id} className="question">
+      <li className="question">
         <h2 className="question-title">
           {question}
         </h2>
@@ -117,7 +109,7 @@ class Question extends Component {
               <Answer
                 key={index}
                 index={index}
-                questions={this.state.questions}
+                questions={this.props.questions}
                 answer={answer}
                 handleAnswerClick={handleAnswerClick}
               />
@@ -129,23 +121,19 @@ class Question extends Component {
   }
 }
 Question.propTypes = {
-  setAnswer: React.PropTypes.func
+
 };
 
 class Answer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      questions: this.props.questions
-    }
   }
   render() {
     let { answer, handleAnswerClick } = this.props;
-    let { questions } = this.state;
     return (
       <li
-        questions={questions}
+        questions={this.props.questions}
         className="question-answer"
         onClick={handleAnswerClick}>
           {answer}

@@ -18,6 +18,9 @@ body {
   font-size: 16px;
   background: rgb(249,219,61);
   color: rgb(47,47,65);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 h1 {
   font-weight: normal;
@@ -25,47 +28,57 @@ h1 {
   text-transform: uppercase;
   letter-spacing: -1px;
   text-align: center;
-  margin: 8.5% 0 7.25%;
 }
 h2 {
-  margin: 0 2% -2%;
-}
-button {
-  border: none;
-  padding: 20px 40px;
-  margin: 10px;
-  background-color: rgba(255,255,255,.5);
-  cursor: pointer;
+  margin: 0 2% 15px;
 }
 ul, li {
   list-style-type: none;
 }
-.container {
-  padding: 40px;
-  width: 70%;
-  margin: 0 auto;
+.question-count {
+  width: 20%;
 }
-.progress {
-  display: block;
-  margin-bottom: 10px;
+.question-count h2 {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
 }
-.progress div {
+/*.question-number {
+  font-weight: 100;
+  font-size: 3em;
+}*/
+.question-number, .total-question-number {
+  font-weight: 800;
   display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  border: 5px solid rgba(255,255,255,.8);
-  border-radius: 50%;
+  margin: 2%;
+  letter-spacing: -2px;
 }
-.progress div.on {
-  background: rgba(255,255,255,.5);
+header {
+  display: flex;
+  align-items: center;
+  margin: 0 40px 20px;
+  padding-top: 50px;
+  justify-content: space-between;
+  width: 100%;
+  background: rgb(249,219,61);
 }
-.progress div.off {
-  background: transparent;
+.score-container {
+  width: 20%;
+  text-align: center;
+  margin-right: 50px;
+}
+.score-container h2 {
+  margin-bottom: 0;
+  font-size: 2em;
+  font-weight: 400;
+}
+.score {
+  font-size: 4em;
+  font-weight: 100;
 }
 .questions {
-  width: 80%;
-  margin: 0 auto;
+  width: 75%;
+  margin: 65px auto 0;
 }
 .question {
   font-size: 2em;
@@ -76,30 +89,25 @@ ul, li {
 .question-answer {
   padding: 2%;
   cursor: pointer;
-  border: 4px solid transparent;
-  transition: all .2s;
-  margin-bottom: 15px;
+  transition: background .2s;
+  border: 5px solid transparent;
 }
 .question-answer:hover {
-  border-color: rgba(0,0,0,.075);
+  border-color: rgba(0,0,0,.5);
 }
 .answer {
   font-size: 1em;
 }
-.score-container {
-  position: fixed;
-  width: 20%;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-}
 @keyframes slide-in {
-  0%   { opacity: 0; transform: translate3d(3%, 0, 0); }
+  0%   { opacity: 0; transform: translate3d(50%, 0, 0); }
   100% { opacity: 1; transform: none; }
 }
-* {
-  animation: slide-in .8s;
+.question {
+  display: none;
+  animation: slide-in .4s ease;
+}
+.question:first-child {
+  display: block;
 }
 </style>
 </head>
