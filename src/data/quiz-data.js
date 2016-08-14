@@ -23,7 +23,7 @@ export const questions = [
 		"question": "What is a closure?",
 		"answers": [
 			"A function having access to the parent scope, even after the parent function has run.",
-			"A stateful function. A function that preserves state.",
+			"A stateful function; a function that preserves state.",
 			"An outer function that returns an inner function that's bound to the outer function's environment.",
 			"All of the above."
 		],

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import QuestionList from './QuestionList';
+import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
 import { questions } from '../data/quiz-data';
 
@@ -18,6 +20,7 @@ class QuizApp extends Component {
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
     this.nextStep = this.nextStep.bind(this);
+    // this.renderQuiz = this.renderQuiz.bind(this);
   }
 
   nextStep() {
@@ -41,17 +44,19 @@ class QuizApp extends Component {
   }
 
   render() {
-    return (
+    let displayQuiz = (
       <div className="wrapper">
         <header>
           <div className="question-count">
-            <h2>Question <span className="question-number">{this.state.step + 1}</span> of<span className="total-question-number">{this.state.totalQuestions}</span>
-            </h2>
+            <h2>Question</h2>
+            <div className="question-number">{this.state.step + 1}</div>
+            <div>of<span className="total-question-number">{this.state.totalQuestions}</span></div>
           </div>
           <h1>JavaScript Quiz</h1>
           <div className="score-container">
             <h2>Score</h2>
             <div className="score">{this.state.score}</div>
+            <div>points</div>
           </div>
         </header>
         <div className="questions">
@@ -63,81 +68,14 @@ class QuizApp extends Component {
         </div>
       </div>
     );
-  }
-}
-
-class QuestionList extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    let { handleAnswerClick } = this.props;
     return (
-      <div className="question-list">
-        { this.props.questions.map((question, index) => {
-          return (
-            <Question
-              key={question.question}
-              index={index}
-              questions={this.props.questions}
-              question={question.question}
-              answers={question.answers}
-              handleAnswerClick={handleAnswerClick}
-              step={this.props.step}
-            />
-          );
-        })}
+      <div>
+        {(() => {
+          if (this.state.step >= this.state.totalQuestions) {
+            return <Results />;
+          } else return displayQuiz;
+        })()}
       </div>
-    );
-  }
-}
-
-class Question extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    let { question, answers, handleAnswerClick} = this.props;
-    return (
-      <li className="question">
-        <h2 className="question-title">
-          {question}
-        </h2>
-        <ul className="question-answers">
-          { this.props.answers.map((answer, index) => {
-            return (
-              <Answer
-                key={index}
-                index={index}
-                questions={this.props.questions}
-                answer={answer}
-                handleAnswerClick={handleAnswerClick}
-              />
-            );
-          })}
-        </ul>
-      </li>
-    );
-  }
-}
-Question.propTypes = {
-
-};
-
-class Answer extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-  render() {
-    let { answer, handleAnswerClick } = this.props;
-    return (
-      <li
-        questions={this.props.questions}
-        className="question-answer"
-        onClick={handleAnswerClick}>
-          {answer}
-      </li>
     );
   }
 }
