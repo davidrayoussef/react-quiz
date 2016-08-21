@@ -1,30 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Question from './Question';
 
-class QuestionList extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    let { handleAnswerClick } = this.props;
-    return (
-      <div className="question-list">
-        { this.props.questions.map((question, index) => {
-          return (
-            <Question
-              key={question.question}
-              index={index}
-              questions={this.props.questions}
-              question={question.question}
-              answers={question.answers}
-              handleAnswerClick={handleAnswerClick}
-              step={this.props.step}
-            />
-          );
-        })}
-      </div>
-    );
-  }
+const QuestionList = ({ questions, step, handleAnswerClick }) => {
+  return (
+    <div className="question-list">
+      { questions.map((question, index) => {
+        return (
+          <Question
+            key={question.question}
+            index={index}
+            questions={questions}
+            question={question.question}
+            answers={question.answers}
+            step={step}
+            handleAnswerClick={handleAnswerClick}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
 export default QuestionList;

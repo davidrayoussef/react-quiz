@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { render } from 'react-dom';
+import Quiz from './Quiz';
 import QuestionList from './QuestionList';
 import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
@@ -12,8 +14,12 @@ class QuizApp extends Component {
 
     this.state = {
       questions: QUESTIONS,
-      userAnswers: [],
-      step: 0,
+      userAnswers: QUESTIONS.map(question => {
+        return {
+          tries: 0
+        }
+      }),
+      step: 1,
       score: 0,
       totalQuestions: QUESTIONS.length
     };
@@ -23,57 +29,117 @@ class QuizApp extends Component {
     // this.renderQuiz = this.renderQuiz.bind(this);
   }
 
+  handleAnswerClick(e) {
+    let { questions, step, userAnswers } = this.state;
+    let isCorrect = questions[0].answers[questions[0].correct] === e.target.innerText;
+    let answersFromUser = userAnswers.slice();
+    let currentStep = step - 1;
+    let tries = answersFromUser[currentStep].tries;
+
+    if (isCorrect) {
+
+      document.querySelector('.question:first-child').style.pointerEvents = 'none';
+
+      e.target.classList.add('right');
+
+      answersFromUser[currentStep] = {
+        tries: tries + 1
+      };
+
+      this.setState({
+        userAnswers: answersFromUser
+      });
+
+      setTimeout(() => {
+        let praise = document.querySelector('.praise');
+        let bonus = document.querySelector('.bonus');
+
+        if (tries === 0) {
+          praise.textContent = '1st Try!';
+          bonus.textContent = '+10';
+        }
+        if (tries === 1) {
+          praise.textContent = '2nd Try!';
+          bonus.textContent = '+5';
+        }
+        if (tries === 2) {
+          praise.textContent = 'Correct!';
+          bonus.textContent = '+2';
+        }
+        if (tries === 3) {
+          praise.textContent = 'Correct!';
+          bonus.textContent = '+1';
+        }
+
+        document.querySelector('.correct-modal').classList.add('shrink');
+        document.querySelector('.bonus').classList.add('show');
+
+      }, 750);
+
+      setTimeout(this.nextStep, 2750);
+
+    } else {
+
+      e.target.style.pointerEvents = 'none';
+      e.target.classList.add('wrong');
+
+      answersFromUser[currentStep] = {
+        tries: tries + 1
+      };
+
+      this.setState({
+        userAnswers: answersFromUser
+      });
+
+    }
+  }
+
   nextStep() {
-    let restOfQuestions = this.state.questions.slice(1);
+    document.querySelector('.correct-modal').classList.remove('shrink');
+    document.querySelector('.bonus').classList.remove('show');
+    let { questions, userAnswers, step, score } = this.state;
+    let restOfQuestions = questions.slice(1);
+    let currentStep = step - 1;
+    let tries = userAnswers[currentStep].tries;
+
     this.setState({
-      step: this.state.step + 1,
-      score: this.state.score + 1,
+      step: step + 1,
+      score: (() => {
+        if (tries === 1) return score + 10;
+        if (tries === 2) return score + 5;
+        if (tries === 3) return score + 2;
+        return score + 1;
+      })(),
       questions: restOfQuestions
     });
   }
 
-  handleAnswerClick(e) {
-    let { questions, step } = this.state;
-    let isCorrect = questions[0].answers[questions[0].correct] === e.target.innerText;
-    if (isCorrect) {
-      e.target.style.background = 'rgba(135,211,124,.5)';
-      setTimeout(this.nextStep, 2000);
-    } else {
-      e.target.style.background = 'rgba(236,100,75,.5)';
-    }
+  restartQuiz() {
+    window.location.reload();
   }
 
   render() {
-    let displayQuiz = (
-      <div className="wrapper">
-        <header>
-          <div className="question-count">
-            <h2>Question</h2>
-            <div className="question-number">{this.state.step + 1}</div>
-            <div>of<span className="total-question-number">{this.state.totalQuestions}</span></div>
-          </div>
-          <h1>JavaScript Quiz</h1>
-          <div className="score-container">
-            <h2>Score</h2>
-            <div className="score">{this.state.score}</div>
-            <div>points</div>
-          </div>
-        </header>
-        <div className="questions">
-          <QuestionList
-            questions={this.state.questions}
-            handleAnswerClick={this.handleAnswerClick}
-            step={this.state.step}
-          />
-        </div>
-      </div>
-    );
+    let { step, questions, totalQuestions, userAnswers, score, handleAnswerClick } = this.state;
     return (
       <div>
         {(() => {
-          if (this.state.step >= this.state.totalQuestions) {
-            return <Results />;
-          } else return displayQuiz;
+          if (step >= totalQuestions + 1) {
+            return (
+              <Results
+                score={score}
+                restartQuiz={this.restartQuiz}
+                userAnswers={userAnswers}
+              />
+            );
+          } else return (
+            <Quiz
+              step={step}
+              questions={questions}
+              totalQuestions={totalQuestions}
+              score={score}
+              handleAnswerClick={this.handleAnswerClick}
+            />
+          );
         })()}
       </div>
     );

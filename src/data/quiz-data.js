@@ -54,8 +54,8 @@ export const questions = [
 		"answers": [
 			"Returns a function that, when executed, will call the original function with a THIS context that you pass in.",
 			"Prevents the value of this from being overridden by call() or apply().",
-			"Answer 3",
-			"Answer 4"
+			"Allows you to implement partial application of a function.",
+			"All of the above."
 		],
 		"correct": 3
 	},
@@ -100,7 +100,7 @@ export const questions = [
 		"correct": 3
 	},
 	{
-		"question": "What is a directive?",
+		"question": "In Angular, what is a directive?",
 		"answers": [
 			"An Angular feature that takes an element and gives it new functionality.",
 			"A reusable component.",
@@ -152,9 +152,9 @@ export const questions = [
 	{
 		"question": "What are the six primitive data types in JavaScript?",
 		"answers": [
-			"Function, String, Undefined, Digit, Nil, and Double",
+			"Function, String, Undefined, Digit, Nil, and Double.",
 			"Boolean, Null, Undefined, Number, String, and Symbol in ES6.",
-			"Number, Class, Object, Hash, String, and Function",
+			"Number, Class, Object, Hash, String, and Function.",
 			"None of the above."
 		],
 		"correct": 1
@@ -166,6 +166,66 @@ export const questions = [
 			"When a function is invoked with the NEW keyword, THIS is bound to the new object.",
 			"Its value is set at the declaration of a function.",
 			"None of the above."
+		],
+		"correct": 2
+	},
+	{
+		"question": "In Angular 2, which of the following are considered Structural Directives (directives that change DOM layout)?",
+		"answers": [
+			"NgFor and NgIf",
+			"NgStyle and NgClass",
+			"NgModel and NgForm",
+			"None of the above."
+		],
+		"correct": 0
+	},
+	{
+		"question": "Which of the following is TRUE about the events 'load' and 'DOMContentLoaded'?",
+		"answers": [
+			"The DOMContentLoaded event comes after the load event.",
+			"The DOMContentLoaded event is fired when the document has been loaded and parsed; the load event fires when all files have finished loading from all resources, including images.",
+			"The load event is fired when only the DOM is loaded and parsed. DOMContentLoaded is fired when the document is fully loaded, including images and iframes.",
+			"They're the same thing."
+		],
+		"correct": 1
+	},
+	{
+		"question": "Which of the following is NOT an example of a data structure in JavaScript?",
+		"answers": [
+			"Object",
+			"Array",
+			"Set in ES2015",
+			"Trie"
+		],
+		"correct": 3
+	},
+	{
+		"question": "Which of the following values is truthy?",
+		"answers": [
+			"0",
+			"\"\" (empty string)",
+			"1",
+			"undefined"
+		],
+		"correct": 2
+	},
+	{
+		"question": "What is an IIFE?",
+		"answers": [
+			"Immediately Iterable Function Evaluation",
+			"Immediately Invoked Function Expression",
+			"Initially Integrated Functional Element",
+			"Internally Indexed File Extension"
+		],
+		"correct": 1
+	},
+	{
+		"question": "In React, what method is used to change state?",
+		"answers": [
+			"changeState()",
+			"onChange()",
+			"setState()",
+			"stateSet()"
 		],
 		"correct": 2
 	}
