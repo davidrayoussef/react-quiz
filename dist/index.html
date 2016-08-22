@@ -33,7 +33,7 @@ h1 {
   text-align: center;
 }
 h2 {
-  margin: 0 2% 15px;
+  margin: 0 1% 15px;
 }
 ul, li {
   color: #222;
@@ -77,10 +77,11 @@ header {
   list-style-type: lower-alpha;
 }
 .question-answer {
-  padding: 15px;
+  padding: 1%;
   cursor: pointer;
   transition: background .2s;
   border: 5px solid transparent;
+  margin-right: 5%;
 }
 .question-answer:hover {
   border-color: rgba(0,0,0,.5);
@@ -217,6 +218,31 @@ header {
   100% {
     display: none;
     transform: scale(1);
+  }
+}
+@media (max-width: 1400px) {
+  body {
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+}
+@media (max-width: 900px) {
+  body {
+    font-size: 12px;
+  }
+  .question-title {
+    width: 90%;
+    margin-left: -20px;
+  }
+  .questions {
+    width: 85%;
+    margin-top: 35px;
+    margin-left: 65px;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 10px;
   }
 }
 </style>

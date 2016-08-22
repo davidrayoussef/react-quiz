@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Quiz from './Quiz';
-import QuestionList from './QuestionList';
 import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
 import { questions } from '../data/quiz-data';

@@ -180,11 +180,11 @@ export const questions = [
 		"correct": 0
 	},
 	{
-		"question": "Which of the following is TRUE about the events 'load' and 'DOMContentLoaded'?",
+		"question": "Which is TRUE about the events 'load' and 'DOMContentLoaded'?",
 		"answers": [
 			"The DOMContentLoaded event comes after the load event.",
-			"The DOMContentLoaded event is fired when the document has been loaded and parsed; the load event fires when all files have finished loading from all resources, including images.",
-			"The load event is fired when only the DOM is loaded and parsed. DOMContentLoaded is fired when the document is fully loaded, including images and iframes.",
+			"DOMContentLoaded is fired when the document has been loaded and parsed; load fires when all files have finished loading, including images.",
+			"The load event is fired when only the DOM is loaded and parsed. DOMContentLoaded is fired when the document is fully loaded, including images.",
 			"They're the same thing."
 		],
 		"correct": 1
