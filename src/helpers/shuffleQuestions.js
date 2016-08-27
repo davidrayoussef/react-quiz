@@ -1,13 +1,12 @@
 const shuffleQuestions = array => {
-  let shuffled = [];
-  array
+  return array
     .map((item, index, array) => {
-      shuffled.push(array[Math.floor(Math.random() * array.length)]);
-    });
-
-  return shuffled.filter((item, index, array) => {
+      return array[Math.floor(Math.random() * array.length)];
+    })
+    .filter((item, index, array) => {
       return index === array.indexOf(item);
-    }).slice(0,10);
+    })
+    .slice(0,10);
 };
 
 export default shuffleQuestions;

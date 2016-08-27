@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import Quiz from './Quiz';
 import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
@@ -118,7 +117,7 @@ class QuizApp extends Component {
   }
 
   render() {
-    let { step, questions, totalQuestions, userAnswers, score, handleAnswerClick } = this.state;
+    let { step, questions, totalQuestions, userAnswers, score } = this.state;
     return (
       <div>
         {(() => {
