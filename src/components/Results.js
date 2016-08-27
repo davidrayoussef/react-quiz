@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import tally from '../helpers/tally';
 
 const Results = ({ userAnswers, score, restartQuiz }) => {
@@ -22,7 +22,9 @@ const Results = ({ userAnswers, score, restartQuiz }) => {
 }
 
 Results.propTypes = {
-
+  userAnswers: PropTypes.array.isRequired,
+  score: PropTypes.number.isRequired,
+  restartQuiz: PropTypes.func.isRequired
 };
 
 export default Results;

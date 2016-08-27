@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Question from './Question';
 
-const QuestionList = ({ questions, step, handleAnswerClick }) => {
+const QuestionList = ({ questions, handleAnswerClick }) => {
   return (
     <div className="question-list">
-      { questions.map((question, index) => {
+      {questions.map(question => {
         return (
           <Question
             key={question.question}
-            index={index}
-            questions={questions}
             question={question.question}
             answers={question.answers}
-            step={step}
             handleAnswerClick={handleAnswerClick}
           />
         );
@@ -20,5 +17,10 @@ const QuestionList = ({ questions, step, handleAnswerClick }) => {
     </div>
   );
 }
+
+QuestionList.propTypes = {
+  questions: PropTypes.array.isRequired,
+  handleAnswerClick: PropTypes.func.isRequired
+};
 
 export default QuestionList;

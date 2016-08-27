@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Answer = ({ answer, handleAnswerClick }) => {
   return (
@@ -9,5 +9,10 @@ const Answer = ({ answer, handleAnswerClick }) => {
     </li>
   );
 }
+
+Answer.propTypes = {
+  answer: PropTypes.string.isRequired,
+  handleAnswerClick: PropTypes.func.isRequired
+};
 
 export default Answer;
