@@ -150,30 +150,6 @@ module.exports = {
     'use-isnan': 'warn',
     'valid-typeof': 'warn',
 
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/
-
-    // TODO: import rules are temporarily disabled because they don't play well
-    // with how eslint-loader only checks the file you change. So if module A
-    // imports module B, and B is missing a default export, the linter will
-    // record this as an issue in module A. Now if you fix module B, the linter
-    // will not be aware that it needs to re-lint A as well, so the error
-    // will stay until the next restart, which is really confusing.
-
-    // This is probably fixable with a patch to eslint-loader.
-    // When file A is saved, we want to invalidate all files that import it
-    // *and* that currently have lint errors. This should fix the problem.
-
-    // 'import/default': 'warn',
-    // 'import/export': 'warn',
-    // 'import/named': 'warn',
-    // 'import/namespace': 'warn',
-    // 'import/no-amd': 'warn',
-    // 'import/no-duplicates': 'warn',
-    // 'import/no-extraneous-dependencies': 'warn',
-    // 'import/no-named-as-default': 'warn',
-    // 'import/no-named-as-default-member': 'warn',
-    // 'import/no-unresolved': ['warn', { commonjs: true }],
-
     // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
     'react/jsx-equals-spacing': ['warn', 'never'],
     'react/jsx-no-duplicate-props': ['warn', { ignoreCase: true }],
