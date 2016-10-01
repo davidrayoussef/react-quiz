@@ -1,4 +1,10 @@
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: __dirname + '/src/index.html',
+  filename: 'index.html',
+  inject: 'body'
+});
 
 module.exports = {
 	devtool: 'eval',
@@ -39,6 +45,7 @@ module.exports = {
 		hot: true
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		HtmlWebpackPluginConfig
 	]
 };
