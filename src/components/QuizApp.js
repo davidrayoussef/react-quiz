@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Quiz from './Quiz';
 import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
@@ -18,8 +18,7 @@ class QuizApp extends Component {
         }
       }),
       step: 1,
-      score: 0,
-      totalQuestions: QUESTIONS.length
+      score: 0
     };
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
@@ -28,11 +27,11 @@ class QuizApp extends Component {
   }
 
   handleAnswerClick(e) {
-    let { questions, step, userAnswers } = this.state;
-    let isCorrect = questions[0].answers[questions[0].correct] === e.target.innerText;
-    let answersFromUser = userAnswers.slice();
-    let currentStep = step - 1;
-    let tries = answersFromUser[currentStep].tries;
+    const { questions, step, userAnswers } = this.state;
+    const isCorrect = questions[0].answers[questions[0].correct] === e.target.innerText;
+    const answersFromUser = userAnswers.slice();
+    const currentStep = step - 1;
+    const tries = answersFromUser[currentStep].tries;
 
     if (isCorrect) {
 
@@ -49,8 +48,8 @@ class QuizApp extends Component {
       });
 
       setTimeout(() => {
-        let praise = document.querySelector('.praise');
-        let bonus = document.querySelector('.bonus');
+        const praise = document.querySelector('.praise');
+        const bonus = document.querySelector('.bonus');
 
         if (tries === 0) {
           praise.textContent = '1st Try!';
@@ -69,7 +68,7 @@ class QuizApp extends Component {
           bonus.textContent = '+1';
         }
 
-        document.querySelector('.correct-modal').classList.add('shrink');
+        document.querySelector('.correct-modal').classList.add('modal-enter');
         document.querySelector('.bonus').classList.add('show');
 
       }, 750);
@@ -93,12 +92,12 @@ class QuizApp extends Component {
   }
 
   nextStep() {
-    document.querySelector('.correct-modal').classList.remove('shrink');
+    document.querySelector('.correct-modal').classList.remove('modal-enter');
     document.querySelector('.bonus').classList.remove('show');
-    let { questions, userAnswers, step, score } = this.state;
-    let restOfQuestions = questions.slice(1);
-    let currentStep = step - 1;
-    let tries = userAnswers[currentStep].tries;
+    const { questions, userAnswers, step, score } = this.state;
+    const restOfQuestions = questions.slice(1);
+    const currentStep = step - 1;
+    const tries = userAnswers[currentStep].tries;
 
     this.setState({
       step: step + 1,
@@ -117,7 +116,8 @@ class QuizApp extends Component {
   }
 
   render() {
-    let { step, questions, totalQuestions, userAnswers, score } = this.state;
+    const { totalQuestions } = this.props;
+    const { step, questions, userAnswers, score } = this.state;
     return (
       <div>
         {(() => {
@@ -143,5 +143,13 @@ class QuizApp extends Component {
     );
   }
 }
+
+QuizApp.defaultProps = {
+  totalQuestions: QUESTIONS.length
+};
+
+QuizApp.propTypes = {
+  totalQuestions: PropTypes.number.isRequired
+};
 
 export default QuizApp;
