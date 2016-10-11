@@ -7,6 +7,8 @@
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js --progress"
   },
+  "repository": "davidrayoussef/react-quiz",
+  "homepage": "https://github.com/davidrayoussef/react-quiz",
   "author": "David Ra Youssef (davidradeveloper@gmail.com)",
   "license": "ISC",
   "devDependencies": {
@@ -22,11 +24,13 @@
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-hot-loader": "^1.3.0",
-    "react-redux": "^4.4.2",
-    "react-router": "^2.0.1",
-    "redux": "^3.4.0",
-    "redux-devtools": "^3.2.0",
     "webpack": "^1.12.14",
     "webpack-dev-server": "^1.14.1"
-  }
+  },
+  "keywords": [
+    "react",
+    "quiz",
+    "test",
+    "react-component"
+  ]
 }
