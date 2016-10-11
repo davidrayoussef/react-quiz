@@ -23,7 +23,6 @@ class QuizApp extends Component {
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
     this.nextStep = this.nextStep.bind(this);
-    // this.renderQuiz = this.renderQuiz.bind(this);
   }
 
   handleAnswerClick(e) {
