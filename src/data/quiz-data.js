@@ -22,7 +22,7 @@ export const questions = [
 	{
 		"question": "What is a closure?",
 		"answers": [
-			"A function having access to the parent scope, even after the parent function has run.",
+			"A function having access to the variables in the parent scope, even after the parent function has returned.",
 			"A stateful function; a function that preserves state.",
 			"An outer function that returns an inner function that's bound to the outer function's environment.",
 			"All of the above."
@@ -34,7 +34,7 @@ export const questions = [
 		"answers": [
 			"When currying or implementing partial application.",
 			"To emulate private methods.",
-			"Counting events.",
+			"Event handlers and callback functions.",
 			"All of the above."
 		],
 		"correct": 3
@@ -228,5 +228,45 @@ export const questions = [
 			"stateSet()"
 		],
 		"correct": 2
+	},
+	{
+		"question": "Which of the following is an aspect of a pure function?",
+		"answers": [
+			"It does not have unintended side effects.",
+			"It does not rely on or affect external state.",
+			"Given the same input, it will always return the same output.",
+			"All of the above"
+		],
+		"correct": 3
+	},
+	{
+		"question": "Where is JavaScript used besides the browser?",
+		"answers": [
+			"Servers, databases, operating systems",
+			"Desktop apps, mobile web apps, mobile hybrid apps, mobile native apps",
+			"Robots, drones, Internet of Things devices",
+			"All of the above"
+		],
+		"correct": 3
+	},
+	{
+		"question": "What are higher order components in React?",
+		"answers": [
+			"They're basically wrappers for other components.",
+			"They take in another component as an argument.",
+			"They're used to extend or modify the behavior of a wrapped component.",
+			"All of the above"
+		],
+		"correct": 3
+	},
+	{
+		"question": "What does the NEW keyword do?",
+		"answers": [
+			"It creates a new empty object.",
+			"It sets the prototype of the new object to the constructor's prototype and calls the constructor.",
+			"It sets the THIS variable to the new object and returns the new object.",
+			"All of the above"
+		],
+		"correct": 3
 	}
 ]
