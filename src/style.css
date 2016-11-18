@@ -1,0 +1,259 @@
+* {
+  box-sizing: border-box;
+}
+html, body, #app, div[data-reactroot] {
+  height: 100%;
+}
+body {
+  width: 100%;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  background: rgb(249,219,61);
+  color: #222;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+h1 {
+  font-weight: normal;
+  font-size: 3em;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  text-align: center;
+}
+h2 {
+  margin: 0 1% 15px;
+}
+ul, li {
+  color: #222;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+}
+.score-container, .question-count {
+  width: 250px;
+  text-align: center;
+}
+.score-container h2, .question-count h2 {
+  margin-bottom: 0;
+  font-size: 2em;
+  font-weight: 400;
+}
+.score, .question-number {
+  font-size: 4em;
+  font-weight: 100;
+}
+.total-question-number {
+  margin: 0 .3em;
+}
+.description {
+  font-size: 1.5em;
+}
+.questions {
+  width: 75%;
+  margin: 65px auto 0;
+}
+.question {
+  font-size: 2em;
+}
+.question-answers {
+  padding: 0;
+}
+.question-answers li {
+  list-style-type: lower-alpha;
+}
+.question-answer {
+  padding: 1%;
+  cursor: pointer;
+  transition: background .2s;
+  border: 5px solid transparent;
+  margin-right: 5%;
+}
+.question-answer:hover {
+  border-color: rgba(0,0,0,.5);
+}
+.answer {
+  font-size: 1em;
+}
+@keyframes slide-in {
+  0%   { opacity: 0; transform: translate3d(40%, 0, 0); }
+  100% { opacity: 1; transform: none; }
+}
+.question {
+  display: none;
+  animation: slide-in .4s ease;
+}
+.question:first-child {
+  display: block;
+}
+.results-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  font-size: 1.75em;
+  line-height: 1.75em;
+  animation: slide-in .4s ease;
+}
+.results-total {
+  margin-top: 15px;
+  font-size: 1.1em;
+}
+.results-container a {
+  position: relative;
+  padding: 15px 30px;
+  margin-top: 30px;
+  border: 3px solid #111;
+  background: none;
+  cursor: pointer;
+  font-size: .75em;
+  transition: background .2s;
+}
+.results-container a:hover {
+  background: rgba(255,255,255,.1);
+}
+.results-container a:active, {
+  background: rgba(255,255,255,.5);
+  outline: none;
+  top: -2px;
+}
+.wrong {
+  color: #333;
+  background: rgba(236,100,75,.5);
+  animation: shake 0.5s cubic-bezier(.35,.05,.20,.99) both;
+}
+.right {
+  background: rgba(135,211,124,.5);
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(1px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  45%, 55% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+.correct-modal {
+  font-size: 5em;
+  text-align: center;
+  width: 100%;
+  background: rgb(252, 235, 148);
+  padding: 5%;
+  will-change: transform;
+  transform: scale(4);
+  z-index: 2;
+  opacity: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  display: none;
+}
+.correct-modal.modal-enter {
+  display: flex;
+  animation: modal-enter 2.3s ease-in both;
+}
+.praise, .bonus {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.bonus {
+  display: none;
+}
+.bonus.show {
+  display: block;
+}
+@keyframes modal-enter {
+  0 {
+    visibility: visible;
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  99% {
+    opacity: .5;
+    transform: scale(1);
+  }
+  100% {
+    display: none;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1400px) {
+  body {
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .correct-modal {
+    height: 300px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    font-size: 11px;
+  }
+  h1 {
+    font-size: 2.25em;
+  }
+  header {
+    padding-top: 20px;
+  }
+  .question-title {
+    width: 90%;
+    margin-left: -20px;
+  }
+  .questions {
+    width: 85%;
+    margin-top: 35px;
+    margin-left: 65px;
+  }
+  .question-answers {
+    margin-left: -15px;
+    padding-right: 25px;
+  }
+  .question-answer {
+    padding: 3%;
+    border: none;
+  }
+  .correct-modal {
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 9px;
+  }
+}
