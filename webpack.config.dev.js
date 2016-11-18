@@ -10,7 +10,6 @@ module.exports = {
 	devtool: 'eval',
 	entry: [
 		'webpack-dev-server/client?http://localhost:8080',
-		'webpack/hot/only-dev-server',
 		'./src/main.js'
 	],
 	output: {
@@ -18,14 +17,14 @@ module.exports = {
 		publicPath: '/',
 		filename: 'bundle.js'
 	},
-		eslint: {
+	eslint: {
 		emitWarning: true
 	},
 	module: {
 		preLoaders: [
 			{
 				test: /\.js?$/,
-				loaders: ["eslint-loader"],
+				loaders: ['eslint-loader'],
 				exclude: /node_modules/
 			}
 		],
@@ -33,8 +32,12 @@ module.exports = {
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loaders: ['react-hot', 'babel']
-			}
+				loaders: ['babel']
+			},
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      }
 		]
 	},
 	resolve: {
