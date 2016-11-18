@@ -232,9 +232,9 @@ export const questions = [
 	{
 		"question": "Which of the following is an aspect of a pure function?",
 		"answers": [
-			"It does not have unintended side effects.",
-			"It does not rely on or affect external state.",
-			"Given the same input, it will always return the same output.",
+			"Doesn't have unintended side effects.",
+			"Doesn't rely on, or affect, external state.",
+			"Given the same input, it'll always return the same output.",
 			"All of the above"
 		],
 		"correct": 3
@@ -262,9 +262,9 @@ export const questions = [
 	{
 		"question": "What does the NEW keyword do?",
 		"answers": [
-			"It creates a new empty object.",
-			"It sets the prototype of the new object to the constructor's prototype and calls the constructor.",
-			"It sets the THIS variable to the new object and returns the new object.",
+			"Creates a new empty object.",
+			"Sets the prototype of the new object to the constructor's prototype and calls the constructor.",
+			"Sets the THIS variable to the new object and returns the new object.",
 			"All of the above"
 		],
 		"correct": 3
