@@ -18,9 +18,9 @@ App Structure
 
 ```
 QuizApp
-|__ Quiz
-    |__ QuestionList
-    |   |__ Question
-    |       |__ Answer
-    |__ Results
+└── Quiz
+    ├── QuestionList
+    |   └── Question
+    |       └── Answer
+    └── Results
 ```
