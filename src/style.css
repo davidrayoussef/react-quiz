@@ -7,21 +7,22 @@ html, body, #app, div[data-reactroot] {
 body {
   width: 100%;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 9px;
   background: rgb(249,219,61);
   color: #222;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 h1 {
   font-weight: normal;
-  font-size: 3em;
+  font-size: 2.25em;
   text-transform: uppercase;
   letter-spacing: -1px;
   text-align: center;
 }
 h2 {
+  font-size: 1.25em;
   margin: 0 1% 15px;
 }
 ul, li {
@@ -31,7 +32,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 .score-container, .question-count {
   width: 250px;
@@ -52,28 +53,30 @@ header {
 .description {
   font-size: 1.5em;
 }
+.question-title {
+  width: 90%;
+  margin-left: -20px;
+}
 .questions {
-  width: 75%;
-  margin: 65px auto 0;
+  width: 85%;
+  margin-top: 35px;
+  margin-left: 65px;
 }
 .question {
   font-size: 2em;
 }
 .question-answers {
-  padding: 0;
+  margin-left: -35px;
+  padding-right: 25px;
 }
 .question-answers li {
   list-style-type: lower-alpha;
 }
 .question-answer {
-  padding: 1%;
+  padding: 3%;
   cursor: pointer;
-  transition: background .2s;
   border: 5px solid transparent;
   margin-right: 5%;
-}
-.question-answer:hover {
-  border-color: rgba(0,0,0,.5);
 }
 .answer {
   font-size: 1em;
@@ -135,15 +138,12 @@ header {
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
-
   20%, 80% {
     transform: translate3d(1px, 0, 0);
   }
-
   30%, 50%, 70% {
     transform: translate3d(-2px, 0, 0);
   }
-
   45%, 55% {
     transform: translate3d(2px, 0, 0);
   }
@@ -161,7 +161,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 200px;
   overflow: auto;
   margin: auto;
   position: absolute;
@@ -210,50 +210,53 @@ header {
   }
 }
 
-@media (max-width: 1400px) {
+@media (min-width: 600px) {
   body {
-    overflow: hidden;
-    overflow-y: scroll;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  header {
+    padding-top: 50px;
+  }
+  .question-title {
+    width: 100%;
+    margin-left: 0;
+  }
+  .questions {
+    width: 75%;
+    margin: 65px auto 0;
+  }
+  .question-answers {
+    margin-left: 0;
+    padding: 0;
+  }
+  .question-answer {
+    padding: 1.5%;
+    margin-right: 0;
+    /*transition: background .2s;*/
+  }
+  .question-answer:hover {
+    border-color: rgba(0,0,0,.5);
   }
   .correct-modal {
     height: 300px;
   }
 }
 
-@media (max-width: 900px) {
+@media (min-width: 1400px) {
   body {
-    font-size: 11px;
-  }
-  h1 {
-    font-size: 2.25em;
-  }
-  header {
-    padding-top: 20px;
-  }
-  .question-title {
-    width: 90%;
-    margin-left: -20px;
-  }
-  .questions {
-    width: 85%;
-    margin-top: 35px;
-    margin-left: 65px;
-  }
-  .question-answers {
-    margin-left: -15px;
-    padding-right: 25px;
-  }
-  .question-answer {
-    padding: 3%;
-    border: none;
+    font-size: 16px;
+    overflow: hidden;
   }
   .correct-modal {
-    height: 200px;
-  }
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 9px;
+    height: 400px;
   }
 }
