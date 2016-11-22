@@ -23,10 +23,7 @@ h1 {
 }
 h2 {
   font-size: 1.25em;
-  margin: 0 1% 15px;
-}
-ul, li {
-  color: #222;
+  margin: 0 0 15px;
 }
 header {
   display: flex;
@@ -53,30 +50,23 @@ header {
 .description {
   font-size: 1.5em;
 }
-.question-title {
-  width: 90%;
-  margin-left: -20px;
-}
 .questions {
   width: 85%;
-  margin-top: 35px;
-  margin-left: 65px;
+  margin: 35px auto 0;
 }
 .question {
   font-size: 2em;
 }
 .question-answers {
-  margin-left: -35px;
-  padding-right: 25px;
+  padding-left: 1.2em;
 }
 .question-answers li {
   list-style-type: lower-alpha;
 }
 .question-answer {
-  padding: 3%;
+  padding: .5em;
   cursor: pointer;
   border: 5px solid transparent;
-  margin-right: 5%;
 }
 .answer {
   font-size: 1em;
@@ -224,24 +214,11 @@ header {
     font-size: 3em;
   }
   header {
-    padding-top: 50px;
-  }
-  .question-title {
-    width: 100%;
-    margin-left: 0;
+    padding: 50px 0 30px;
   }
   .questions {
     width: 75%;
-    margin: 65px auto 0;
-  }
-  .question-answers {
-    margin-left: 0;
-    padding: 0;
-  }
-  .question-answer {
-    padding: 1.5%;
-    margin-right: 0;
-    /*transition: background .2s;*/
+    margin: 35px auto 0;
   }
   .question-answer:hover {
     border-color: rgba(0,0,0,.5);
