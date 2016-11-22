@@ -218,7 +218,6 @@ header {
   }
   .questions {
     width: 75%;
-    margin: 35px auto 0;
   }
   .question-answer:hover {
     border-color: rgba(0,0,0,.5);
