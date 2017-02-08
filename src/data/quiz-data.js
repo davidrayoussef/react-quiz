@@ -122,9 +122,9 @@ export const questions = [
 	{
 		"question": "What is event bubbling?",
 		"answers": [
-			"When the browser engine goes down the DOM tree looking for events.",
-			"When the browser engine goes up the DOM tree looking for events.",
-			"When the browser engine goes sideways on sibling elements looking for events.",
+			"When the browser engine searches down the DOM tree for event handlers.",
+			"When the browser engine searches up the DOM tree for event handlers.",
+			"When the browser engine searches sideways on sibling elements for event handlers.",
 			"None of the above."
 		],
 		"correct": 1
