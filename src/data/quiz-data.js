@@ -1,6 +1,6 @@
 export const questions = [
 	{
-		"question": "Which of the following is true about reflows and a repaints?",
+		"question": "Which of the following is true about reflows and repaints?",
 		"answers": [
 			"They're the same thing.",
 			"Repaints (or redraws) occur when elements change their visual styles but not layout.",
