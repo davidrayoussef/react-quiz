@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Quiz from './Quiz';
 import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
@@ -143,11 +144,11 @@ class QuizApp extends Component {
   }
 }
 
-QuizApp.defaultProps = {
+Component.defaultProps = {
   totalQuestions: QUESTIONS.length
 };
 
-QuizApp.propTypes = {
+Component.propTypes = {
   totalQuestions: PropTypes.number.isRequired
 };
 

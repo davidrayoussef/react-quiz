@@ -1,31 +1,35 @@
-import React, { PropTypes } from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 import Answer from './Answer';
 
-const Question = ({ question, answers, handleAnswerClick }) => {
-  return (
-    <li className="question">
-      <h2 className="question-title">
-        {question}
-      </h2>
-      <ol className="question-answers">
-        {answers.map(answer => {
-          return (
-            <Answer
-              key={answer}
-              answer={answer}
-              handleAnswerClick={handleAnswerClick}
-            />
-          );
-        })}
-      </ol>
-    </li>
-  );
+class Question extends Component {
+    render() {
+        return (
+            <li className="question">
+                <h2 className="question-title">
+                    {this.props.question}
+                </h2>
+                <ol className="question-answers">
+                    {this.props.answers.map(answer => {
+                        return (
+                            <Answer
+                                key={answer}
+                                answer={answer}
+                                handleAnswerClick={this.props.handleAnswerClick}
+                            />
+                        );
+                    })}
+                </ol>
+            </li>
+        );
+    }
 }
 
-Question.propTypes = {
-  question: PropTypes.string.isRequired,
-  answers: PropTypes.array.isRequired,
-  handleAnswerClick: PropTypes.func.isRequired
+Component.propTypes = {
+    question: PropTypes.string.isRequired,
+    answers: PropTypes.array.isRequired,
+    handleAnswerClick: PropTypes.func.isRequired
 };
 
 export default Question;
