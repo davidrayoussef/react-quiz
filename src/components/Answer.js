@@ -1,18 +1,24 @@
-import React, { PropTypes } from 'react';
+import React, { Component} from 'react';
+import PropTypes from 'prop-types';
 
-const Answer = ({ answer, handleAnswerClick }) => {
-  return (
-    <li
-      className="question-answer"
-      onClick={handleAnswerClick}>
-        {answer}
-    </li>
-  );
+
+class Answer extends Component {
+
+    render() {
+        return (
+            <li
+                className="question-answer"
+                onClick={this.props.handleAnswerClick}>
+                {this.props.answer}
+            </li>
+        );
+    }
+
 }
 
-Answer.propTypes = {
-  answer: PropTypes.string.isRequired,
-  handleAnswerClick: PropTypes.func.isRequired
+Component.propTypes = {
+    answer: PropTypes.string.isRequired,
+    handleAnswerClick: PropTypes.func.isRequired
 };
 
 export default Answer;
