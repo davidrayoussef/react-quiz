@@ -64,7 +64,7 @@ export const questions = [
     "answers": [
       "With Object.create().",
       "With class Sub extends Super in ES2015.",
-      "Using Parent.method.call inside Child.prototype.method.",
+      "Using Parent.prototype.method.call inside Child.prototype.method.",
       "All of the above."
     ],
     "correct": 3
@@ -268,5 +268,15 @@ export const questions = [
       "All of the above"
     ],
     "correct": 3
+  },
+  {
+    "question": "How is let different from var?",
+    "answers": [
+      "let is block scoped.",
+      "let isn't hoisted.",
+      "let can't be redeclared.",
+      "All of the above"
+    ],
+    "correct": 3
   }
-]
+];
