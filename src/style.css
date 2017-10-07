@@ -230,9 +230,14 @@ header {
 @media (min-width: 1400px) {
   body {
     font-size: 16px;
-    overflow: hidden;
   }
   .correct-modal {
     height: 400px;
+  }
+}
+
+@media (min-width: 1600px) {
+  body {
+    overflow: hidden;
   }
 }

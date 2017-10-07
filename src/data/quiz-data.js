@@ -1,6 +1,6 @@
 export const questions = [
   {
-    "question": "Which of the following is true about reflows and repaints?",
+    "question": "Which of the following is TRUE about reflows and repaints?",
     "answers": [
       "They're the same thing.",
       "Repaints (or redraws) occur when elements change their visual styles but not layout.",
@@ -53,7 +53,7 @@ export const questions = [
     "question": "What does the bind method do?",
     "answers": [
       "Returns a function that, when executed, will call the original function with a THIS context that you pass in.",
-      "Prevents the value of this from being overridden by call() or apply().",
+      "Prevents the value of THIS from being overridden by call() or apply().",
       "Allows you to implement partial application of a function.",
       "All of the above."
     ],
@@ -83,7 +83,7 @@ export const questions = [
     "question": "What is CORS?",
     "answers": [
       "Cross-Origin Resource Sharing",
-      "Allows restricted resources (e.g. fonts) on a web page to be requested from an outside domain",
+      "Allows restricted resources (e.g. fonts) on a web page to be requested from an outside domain.",
       "Allows scripts to interact more openly with content outside of the original domain, leading to better integration between web services.",
       "All of the above."
     ],
@@ -235,7 +235,7 @@ export const questions = [
       "Doesn't have unintended side effects.",
       "Doesn't rely on, or affect, external state.",
       "Given the same input, it'll always return the same output.",
-      "All of the above"
+      "All of the above."
     ],
     "correct": 3
   },
@@ -245,7 +245,7 @@ export const questions = [
       "Servers, databases, operating systems",
       "Desktop apps, mobile web apps, mobile hybrid apps, mobile native apps",
       "Robots, drones, Internet of Things devices",
-      "All of the above"
+      "All of the above."
     ],
     "correct": 3
   },
@@ -255,7 +255,7 @@ export const questions = [
       "They're basically wrappers for other components.",
       "They take in another component as an argument.",
       "They're used to extend or modify the behavior of a wrapped component.",
-      "All of the above"
+      "All of the above."
     ],
     "correct": 3
   },
@@ -265,7 +265,7 @@ export const questions = [
       "Creates a new empty object.",
       "Sets the prototype of the new object to the constructor's prototype and calls the constructor.",
       "Sets the THIS variable to the new object and returns the new object.",
-      "All of the above"
+      "All of the above."
     ],
     "correct": 3
   },
@@ -275,7 +275,37 @@ export const questions = [
       "let is block scoped.",
       "let isn't hoisted.",
       "let can't be redeclared.",
-      "All of the above"
+      "All of the above."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Which of the following is TRUE about the THIS keyword?",
+    "answers": [
+      "If a method is called, THIS refers to the object that the method is a property of. If the new keyword is used, THIS is the new object instance.",
+      "If call, apply or bind are used, THIS is the object that's passed in as the argument.",
+      "If none of the above conditions are met, THIS refers to the global object (window in the browser in non-strict mode; global in Node).",
+      "All of the above."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Which of the following is something to look out for when using arrow functions?",
+    "answers": [
+      "An arrow function receives the THIS value of its surrounding scope at the time it was created; it behaves as if it had been created using fn.bind(this).",
+      "If an arrow function is used in an event handler attached to an element, the THIS variable refers to the parent (usually the global) object rather than the element.",
+      "An arrow function can't be used as a constructor.",
+      "All of the above."
+    ],
+    "correct": 3
+  },
+  {
+    "question": "Which of the following methods can be used to organize/encapsulate code?",
+    "answers": [
+      "The module pattern in ES5 or Module Import Export in ES6.",
+      "An Immediately Invoked Function Expression.",
+      "OO / Prototypal Inheritance / Objects Linked to Other Objects",
+      "All of the above."
     ],
     "correct": 3
   }
