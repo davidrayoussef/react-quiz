@@ -7,7 +7,7 @@ const QuestionList = ({ questions, handleAnswerClick }) => {
       {questions.map(question => {
         return (
           <Question
-            key={question.question}
+            key={question.question.props.children.toString()}
             question={question.question}
             answers={question.answers}
             handleAnswerClick={handleAnswerClick}

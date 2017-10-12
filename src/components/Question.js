@@ -8,10 +8,10 @@ const Question = ({ question, answers, handleAnswerClick }) => {
         {question}
       </h2>
       <ol className="question-answers">
-        {answers.map(answer => {
+        {answers.map((answer, index) => {
           return (
             <Answer
-              key={answer}
+              key={JSON.stringify(answer.props.children)}
               answer={answer}
               handleAnswerClick={handleAnswerClick}
             />
@@ -23,7 +23,7 @@ const Question = ({ question, answers, handleAnswerClick }) => {
 }
 
 Question.propTypes = {
-  question: PropTypes.string.isRequired,
+  question: PropTypes.element.isRequired,
   answers: PropTypes.array.isRequired,
   handleAnswerClick: PropTypes.func.isRequired
 };

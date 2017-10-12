@@ -11,7 +11,7 @@ const Answer = ({ answer, handleAnswerClick }) => {
 }
 
 Answer.propTypes = {
-  answer: PropTypes.string.isRequired,
+  answer: PropTypes.element.isRequired,
   handleAnswerClick: PropTypes.func.isRequired
 };
 
