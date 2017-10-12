@@ -32,7 +32,7 @@ class QuizApp extends Component {
     const currentStep = step - 1;
     const tries = answersFromUser[currentStep].tries;
 
-    if (isCorrect) {
+    if (isCorrect && e.target.nodeName === 'P') {
       document.querySelector('.question:first-child').style.pointerEvents = 'none';
 
       e.target.parentNode.classList.add('right');
@@ -73,8 +73,9 @@ class QuizApp extends Component {
 
       setTimeout(this.nextStep, 2750);
 
-    } else {
+    }
 
+    else if (e.target.nodeName === 'P') {
       e.target.style.pointerEvents = 'none';
       e.target.parentNode.classList.add('wrong');
 
