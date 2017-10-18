@@ -42,14 +42,13 @@ p {
 }
 
 code {
-  font-weight: 700;
-  color: #000;
-  letter-spacing: -1px;
-  pointer-events: none;
-}
-
-h2 code {
+  font-family: monospace;
+  font-size: .8em;
   font-weight: 100;
+  pointer-events: none;
+  background: rgba(0,0,0,.09);
+  padding: 3px 4px;
+  margin: 0 2px;
 }
 
 .score-container, .question-count {
