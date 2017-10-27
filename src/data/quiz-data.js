@@ -310,5 +310,25 @@ export const questions = [
       <p>All of the above.</p>
     ],
     "correct": "All of the above."
+  },
+  {
+    "question": <p>What's an example of a practical use case for recursion?</p>,
+    "answers": [
+      <p>Traversing a tree (e.g., Walking the DOM).</p>,
+      <p>Flattening a deeply nested array.</p>,
+      <p>Deep freezing a deeply nested object.</p>,
+      <p>All of the above.</p>
+    ],
+    "correct": "All of the above."
+  },
+  {
+    "question": <p>What's the difference between <code>=</code>, <code>==</code>, and <code>===</code>?</p>,
+    "answers": [
+      <p><code>=</code> is the basic assignment operator. It assigns the value of its right operand to its left operand.</p>,
+      <p><code>==</code> compares two values for equality AFTER converting both values to a common type.</p>,
+      <p><code>===</code> is used for strict equality. It checks for equality of both value AND type.</p>,
+      <p>All of the above.</p>
+    ],
+    "correct": "All of the above."
   }
 ];
