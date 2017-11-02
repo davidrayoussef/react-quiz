@@ -1,15 +1,9 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: __dirname + '/src/index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	devtool: 'eval',
 	entry: [
-		'webpack-dev-server/client?http://localhost:8080',
 		'./src/main.js'
 	],
 	output: {
@@ -17,31 +11,32 @@ module.exports = {
 		publicPath: '/',
 		filename: 'bundle.js'
 	},
-	eslint: {
-		emitWarning: true
-	},
 	module: {
-		preLoaders: [
-			{
-				test: /\.js?$/,
-				loaders: ['eslint-loader'],
-				exclude: /node_modules/
-			}
-		],
-		loaders: [
+		rules: [
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        options: {
+          emitError: true,
+        }
+      },
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loaders: ['babel']
+				use: ['babel-loader']
 			},
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
 		]
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx']
+		extensions: ['.js', '.jsx']
 	},
 	devServer: {
 		contentBase: './dist',
@@ -49,6 +44,10 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
-		HtmlWebpackPluginConfig
+    new HtmlWebpackPlugin({
+      template: __dirname + '/src/index.html',
+      filename: 'index.html',
+      inject: 'body'
+    })
 	]
 };

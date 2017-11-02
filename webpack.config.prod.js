@@ -1,6 +1,6 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: './src/main.js',
@@ -9,15 +9,18 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: 'babel'
+				loader: 'babel-loader'
 			},
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+       })
       }
 		]
 	},
@@ -40,12 +43,9 @@ module.exports = {
 			}
 		}),
 		new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
-				screw_ie8: true,
-				warnings: false
+				screw_ie8: true
 			},
 			mangle: {
 				screw_ie8: true
