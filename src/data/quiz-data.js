@@ -2,332 +2,332 @@ import React from 'react';
 
 export const questions = [
   {
-    "question": <p>Which of the following is TRUE about reflows and repaints?</p>,
+    "question": <span>Which of the following is TRUE about reflows and repaints?</span>,
     "answers": [
-      <p>They're the same thing.</p>,
-      <p>Repaints (or redraws) occur when elements change their visual styles but not layout.</p>,
-      <p>Reflows compute layout, are more performance critical, and occur when elements are inserted, removed, moved, animated, etc.</p>,
-      <p>The previous two answers are correct.</p>
+      <span>They're the same thing.</span>,
+      <span>Repaints (or redraws) occur when elements change their visual styles but not layout.</span>,
+      <span>Reflows compute layout, are more performance critical, and occur when elements are inserted, removed, moved, animated, etc.</span>,
+      <span>The previous two answers are correct.</span>
     ],
     "correct": "Reflows compute layout, are more performance critical, and occur when elements are inserted, removed, moved, animated, etc."
   },
   {
-    "question": <p>What are the three types of JavaScript errors?</p>,
+    "question": <span>What are the three types of JavaScript errors?</span>,
     "answers": [
-      <p>Parse Errors, Syntax Errors and Runtime Errors.</p>,
-      <p>Loading Errors, Runtime Errors and Logic Errors.</p>,
-      <p>Syntax Errors, Logic Errors and Loading Errors.</p>,
-      <p>Bad Errors, Very Bad Errors, and Fatal Errors.</p>
+      <span>Parse Errors, Syntax Errors and Runtime Errors.</span>,
+      <span>Loading Errors, Runtime Errors and Logic Errors.</span>,
+      <span>Syntax Errors, Logic Errors and Loading Errors.</span>,
+      <span>Bad Errors, Very Bad Errors, and Fatal Errors.</span>
     ],
     "correct": "Loading Errors, Runtime Errors and Logic Errors."
   },
   {
-    "question": <p>What is a closure?</p>,
+    "question": <span>What is a closure?</span>,
     "answers": [
-      <p>A function having access to the variables in the parent scope, even after the parent function has returned.</p>,
-      <p>A stateful function; a function that preserves state.</p>,
-      <p>An outer function that returns an inner function that's bound to the outer function's environment.</p>,
-      <p>All of the above.</p>
+      <span>A function having access to the variables in the parent scope, even after the parent function has returned.</span>,
+      <span>A stateful function; a function that preserves state.</span>,
+      <span>An outer function that returns an inner function that's bound to the outer function's environment.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>Where might you use a closure in JavaScript?</p>,
+    "question": <span>Where might you use a closure in JavaScript?</span>,
     "answers": [
-      <p>When currying or implementing partial application.</p>,
-      <p>To emulate private methods.</p>,
-      <p>Event handlers and callback functions.</p>,
-      <p>All of the above.</p>
+      <span>When currying or implementing partial application.</span>,
+      <span>To emulate private methods.</span>,
+      <span>Event handlers and callback functions.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>Which of these is a use case for the <code>bind</code>, <code>call</code>, or <code>apply</code> methods?</p>,
+    "question": <span>Which of these is a use case for the <code>bind</code>, <code>call</code>, or <code>apply</code> methods?</span>,
     "answers": [
-      <p>You can use <code>call</code> or <code>apply</code> to borrow methods from other objects.</p>,
-      <p>You can use <code>bind</code> for partial function application.</p>,
-      <p>If you're using the <code>map</code> method to run a function on an array and you need to preserve the <code>this</code> context, you can use <code>bind</code>.</p>,
-      <p>All of the above.</p>
+      <span>You can use <code>call</code> or <code>apply</code> to borrow methods from other objects.</span>,
+      <span>You can use <code>bind</code> for partial function application.</span>,
+      <span>If you're using the <code>map</code> method to run a function on an array and you need to preserve the <code>this</code> context, you can use <code>bind</code>.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What does the <code>bind</code> method do?</p>,
+    "question": <span>What does the <code>bind</code> method do?</span>,
     "answers": [
-      <p>Returns a function that, when executed, will call the original function with a <code>this</code> context that you pass in.</p>,
-      <p>Prevents the value of <code>this</code> from being overridden by <code>call</code> or <code>apply</code>.</p>,
-      <p>Allows you to implement partial application of a function.</p>,
-      <p>All of the above.</p>
+      <span>Returns a function that, when executed, will call the original function with a <code>this</code> context that you pass in.</span>,
+      <span>Prevents the value of <code>this</code> from being overridden by <code>call</code> or <code>apply</code>.</span>,
+      <span>Allows you to implement partial application of a function.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>How do objects inherit methods in JavaScript?</p>,
+    "question": <span>How do objects inherit methods in JavaScript?</span>,
     "answers": [
-      <p>With <code>Object.create</code>.</p>,
-      <p>With <code>class Sub extends Super</code> in ES2015.</p>,
-      <p>Using <code>Parent.prototype.method.call</code> inside <code>Child.prototype.method</code>.</p>,
-      <p>All of the above.</p>
+      <span>With <code>Object.create</code>.</span>,
+      <span>With <code>class Sub extends Super</code> in ES2015.</span>,
+      <span>Using <code>Parent.prototype.method.call</code> inside <code>Child.prototype.method</code>.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What is a promise?</p>,
+    "question": <span>What is a promise?</span>,
     "answers": [
-      <p>An object that represents a possible future value.</p>,
-      <p>An object that's used for deferred and asynchronous computations.</p>,
-      <p>A proxy for a value that will eventually become available.</p>,
-      <p>All of the above.</p>
+      <span>An object that represents a possible future value.</span>,
+      <span>An object that's used for deferred and asynchronous computations.</span>,
+      <span>A proxy for a value that will eventually become available.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What is CORS?</p>,
+    "question": <span>What is CORS?</span>,
     "answers": [
-      <p>Cross-Origin Resource Sharing</p>,
-      <p>Allows restricted resources (e.g. fonts) on a web page to be requested from an outside domain.</p>,
-      <p>Allows scripts to interact more openly with content outside of the original domain, leading to better integration between web services.</p>,
-      <p>All of the above.</p>
+      <span>Cross-Origin Resource Sharing</span>,
+      <span>Allows restricted resources (e.g. fonts) on a web page to be requested from an outside domain.</span>,
+      <span>Allows scripts to interact more openly with content outside of the original domain, leading to better integration between web services.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What is an Angular expression?</p>,
+    "question": <span>What is an Angular expression?</span>,
     "answers": [
-      <p>A JavaScript-like code snippet that is evaluated by Angular.</p>,
-      <p>A code snippet that is evaluated in the context of the current model scope, rather than within the scope of the global context (window).</p>,
-      <p>A binding in double curly brackets that gets evaluated and the results appear in the DOM in place of it.</p>,
-      <p>All of the above.</p>
+      <span>A JavaScript-like code snippet that is evaluated by Angular.</span>,
+      <span>A code snippet that is evaluated in the context of the current model scope, rather than within the scope of the global context (window).</span>,
+      <span>A binding in double curly brackets that gets evaluated and the results appear in the DOM in place of it.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>In Angular, what is a directive?</p>,
+    "question": <span>In Angular, what is a directive?</span>,
     "answers": [
-      <p>An Angular feature that takes an element and gives it new functionality.</p>,
-      <p>A reusable component.</p>,
-      <p>A combination of HTML and JavaScript that will execute together.</p>,
-      <p>All of the above.</p>
+      <span>An Angular feature that takes an element and gives it new functionality.</span>,
+      <span>A reusable component.</span>,
+      <span>A combination of HTML and JavaScript that will execute together.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What does strict mode do?</p>,
+    "question": <span>What does strict mode do?</span>,
     "answers": [
-      <p>Makes code more optimizable.</p>,
-      <p>Adds restrictions to prevent errors.</p>,
-      <p>Prevents the use of global variables and the use of dangerous code like <code>with</code> and <code>eval</code>.</p>,
-      <p>All of the above.</p>
+      <span>Makes code more optimizable.</span>,
+      <span>Adds restrictions to prevent errors.</span>,
+      <span>Prevents the use of global variables and the use of dangerous code like <code>with</code> and <code>eval</code>.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What is event bubbling?</p>,
+    "question": <span>What is event bubbling?</span>,
     "answers": [
-      <p>When the browser engine searches down the DOM tree for event handlers.</p>,
-      <p>When the browser engine searches up the DOM tree for event handlers.</p>,
-      <p>When the browser engine searches sideways on sibling elements for event handlers.</p>,
-      <p>None of the above.</p>
+      <span>When the browser engine searches down the DOM tree for event handlers.</span>,
+      <span>When the browser engine searches up the DOM tree for event handlers.</span>,
+      <span>When the browser engine searches sideways on sibling elements for event handlers.</span>,
+      <span>None of the above.</span>
     ],
     "correct": "When the browser engine searches up the DOM tree for event handlers."
   },
   {
-    "question": <p>What is event delegation?</p>,
+    "question": <span>What is event delegation?</span>,
     "answers": [
-      <p>Attaching event handlers to child elements rather than parent elements.</p>,
-      <p>Creating custom event handlers.</p>,
-      <p>Attaching event handlers to a parent element rather than multiple child elements.</p>,
-      <p>None of the above.</p>
+      <span>Attaching event handlers to child elements rather than parent elements.</span>,
+      <span>Creating custom event handlers.</span>,
+      <span>Attaching event handlers to a parent element rather than multiple child elements.</span>,
+      <span>None of the above.</span>
     ],
     "correct": "Attaching event handlers to a parent element rather than multiple child elements."
   },
   {
-    "question": <p>What is dependency injection?</p>,
+    "question": <span>What is dependency injection?</span>,
     "answers": [
-      <p>There's no such thing.</p>,
-      <p>A type of data structure.</p>,
-      <p>A coding pattern in which a class receives the instances of objects it needs from an external source rather than creating them itself.</p>,
-      <p>A new drug the kids are doing nowadays.</p>
+      <span>There's no such thing.</span>,
+      <span>A type of data structure.</span>,
+      <span>A coding pattern in which a class receives the instances of objects it needs from an external source rather than creating them itself.</span>,
+      <span>A new drug the kids are doing nowadays.</span>
     ],
     "correct": "A coding pattern in which a class receives the instances of objects it needs from an external source rather than creating them itself."
   },
   {
-    "question": <p>What are the six primitive data types in JavaScript?</p>,
+    "question": <span>What are the six primitive data types in JavaScript?</span>,
     "answers": [
-      <p>Function, String, Undefined, Digit, Nil, and Double.</p>,
-      <p>Boolean, Null, Undefined, Number, String, and Symbol in ES6.</p>,
-      <p>Number, Class, Object, Hash, String, and Function.</p>,
-      <p>None of the above.</p>
+      <span>Function, String, Undefined, Digit, Nil, and Double.</span>,
+      <span>Boolean, Null, Undefined, Number, String, and Symbol in ES6.</span>,
+      <span>Number, Class, Object, Hash, String, and Function.</span>,
+      <span>None of the above.</span>
     ],
     "correct": "Boolean, Null, Undefined, Number, String, and Symbol in ES6."
   },
   {
-    "question": <p>Which of the following is FALSE about the <code>this</code> keyword?</p>,
+    "question": <span>Which of the following is FALSE about the <code>this</code> keyword?</span>,
     "answers": [
-      <p>Its value is established at the invocation of a function.</p>,
-      <p>When a function is invoked with the <code>new</code> keyword, <code>this</code> is bound to the new object.</p>,
-      <p>Its value is set at the declaration of a function.</p>,
-      <p>None of the above.</p>
+      <span>Its value is established at the invocation of a function.</span>,
+      <span>When a function is invoked with the <code>new</code> keyword, <code>this</code> is bound to the new object.</span>,
+      <span>Its value is set at the declaration of a function.</span>,
+      <span>None of the above.</span>
     ],
     "correct": "Its value is set at the declaration of a function."
   },
   {
-    "question": <p>In Angular 2, which of the following are considered Structural Directives (directives that change DOM layout)?</p>,
+    "question": <span>In Angular 2, which of the following are considered Structural Directives (directives that change DOM layout)?</span>,
     "answers": [
-      <p><code>NgFor</code> and <code>NgIf</code></p>,
-      <p><code>NgStyle</code> and <code>NgClass</code></p>,
-      <p><code>NgModel</code> and <code>NgForm</code></p>,
-      <p>None of the above.</p>
+      <span><code>NgFor</code> and <code>NgIf</code></span>,
+      <span><code>NgStyle</code> and <code>NgClass</code></span>,
+      <span><code>NgModel</code> and <code>NgForm</code></span>,
+      <span>None of the above.</span>
     ],
     "correct": "NgFor and NgIf"
   },
   {
-    "question": <p>Which is TRUE about the events <code>load</code> and <code>DOMContentLoaded</code>?</p>,
+    "question": <span>Which is TRUE about the events <code>load</code> and <code>DOMContentLoaded</code>?</span>,
     "answers": [
-      <p>The <code>DOMContentLoaded</code> event comes after the <code>load</code> event.</p>,
-      <p><code>DOMContentLoaded</code> is fired when the document has been loaded and parsed; <code>load</code> fires when all files have finished loading, including images.</p>,
-      <p>The <code>load</code> event is fired when only the DOM is loaded and parsed. <code>DOMContentLoaded</code> is fired when the document is fully loaded, including images.</p>,
-      <p>They're the same thing.</p>
+      <span>The <code>DOMContentLoaded</code> event comes after the <code>load</code> event.</span>,
+      <span><code>DOMContentLoaded</code> is fired when the document has been loaded and parsed; <code>load</code> fires when all files have finished loading, including images.</span>,
+      <span>The <code>load</code> event is fired when only the DOM is loaded and parsed. <code>DOMContentLoaded</code> is fired when the document is fully loaded, including images.</span>,
+      <span>They're the same thing.</span>
     ],
     "correct": "DOMContentLoaded is fired when the document has been loaded and parsed; load fires when all files have finished loading, including images."
   },
   {
-    "question": <p>Which of the following is NOT an example of a data structure in JavaScript?</p>,
+    "question": <span>Which of the following is NOT an example of a data structure in JavaScript?</span>,
     "answers": [
-      <p>Object</p>,
-      <p>Array</p>,
-      <p>Set in ES2015</p>,
-      <p>Trie</p>
+      <span>Object</span>,
+      <span>Array</span>,
+      <span>Set in ES2015</span>,
+      <span>Trie</span>
     ],
     "correct": "Trie"
   },
   {
-    "question": <p>Which of the following values is truthy?</p>,
+    "question": <span>Which of the following values is truthy?</span>,
     "answers": [
-      <p><code>0</code></p>,
-      <p><code>""</code> (empty string)</p>,
-      <p><code>1</code></p>,
-      <p><code>undefined</code></p>
+      <span><code>0</code></span>,
+      <span><code>""</code> (empty string)</span>,
+      <span><code>1</code></span>,
+      <span><code>undefined</code></span>
     ],
     "correct": "1"
   },
   {
-    "question": <p>What is an IIFE?</p>,
+    "question": <span>What is an IIFE?</span>,
     "answers": [
-      <p>Immediately Iterable Function Evaluation</p>,
-      <p>Immediately Invoked Function Expression</p>,
-      <p>Initially Integrated Functional Element</p>,
-      <p>Internally Indexed File Extension</p>
+      <span>Immediately Iterable Function Evaluation</span>,
+      <span>Immediately Invoked Function Expression</span>,
+      <span>Initially Integrated Functional Element</span>,
+      <span>Internally Indexed File Extension</span>
     ],
     "correct": "Immediately Invoked Function Expression"
   },
   {
-    "question": <p>In React, what method is used to change state?</p>,
+    "question": <span>In React, what method is used to change state?</span>,
     "answers": [
-      <p><code>changeState()</code></p>,
-      <p><code>onChange()</code></p>,
-      <p><code>setState()</code></p>,
-      <p><code>stateSet()</code></p>
+      <span><code>changeState()</code></span>,
+      <span><code>onChange()</code></span>,
+      <span><code>setState()</code></span>,
+      <span><code>stateSet()</code></span>
     ],
     "correct": "setState()"
   },
   {
-    "question": <p>Which of the following is an aspect of a pure function?</p>,
+    "question": <span>Which of the following is an aspect of a pure function?</span>,
     "answers": [
-      <p>Doesn't have unintended side effects.</p>,
-      <p>Doesn't rely on, or affect, external state.</p>,
-      <p>Given the same input, it'll always return the same output.</p>,
-      <p>All of the above.</p>
+      <span>Doesn't have unintended side effects.</span>,
+      <span>Doesn't rely on, or affect, external state.</span>,
+      <span>Given the same input, it'll always return the same output.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>Where is JavaScript used besides the browser?</p>,
+    "question": <span>Where is JavaScript used besides the browser?</span>,
     "answers": [
-      <p>Servers, databases, operating systems</p>,
-      <p>Desktop apps, mobile web apps, mobile hybrid apps, mobile native apps</p>,
-      <p>Robots, drones, Internet of Things devices</p>,
-      <p>All of the above.</p>
+      <span>Servers, databases, operating systems</span>,
+      <span>Desktop apps, mobile web apps, mobile hybrid apps, mobile native apps</span>,
+      <span>Robots, drones, Internet of Things devices</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What are higher order components in React?</p>,
+    "question": <span>What are higher order components in React?</span>,
     "answers": [
-      <p>They're basically wrappers for other components.</p>,
-      <p>They take in another component as an argument.</p>,
-      <p>They're used to extend or modify the behavior of a wrapped component.</p>,
-      <p>All of the above.</p>
+      <span>They're basically wrappers for other components.</span>,
+      <span>They take in another component as an argument.</span>,
+      <span>They're used to extend or modify the behavior of a wrapped component.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What does the <code>new</code> keyword do?</p>,
+    "question": <span>What does the <code>new</code> keyword do?</span>,
     "answers": [
-      <p>Creates a new empty object.</p>,
-      <p>Sets the prototype of the new object to the constructor's prototype and calls the constructor.</p>,
-      <p>Sets the <code>this</code> variable to the new object and returns the new object.</p>,
-      <p>All of the above.</p>
+      <span>Creates a new empty object.</span>,
+      <span>Sets the prototype of the new object to the constructor's prototype and calls the constructor.</span>,
+      <span>Sets the <code>this</code> variable to the new object and returns the new object.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>How is <code>let</code> different from <code>var</code>?</p>,
+    "question": <span>How is <code>let</code> different from <code>var</code>?</span>,
     "answers": [
-      <p><code>let</code> is block scoped.</p>,
-      <p><code>let</code> isn't hoisted.</p>,
-      <p><code>let</code> can't be redeclared.</p>,
-      <p>All of the above.</p>
+      <span><code>let</code> is block scoped.</span>,
+      <span><code>let</code> isn't hoisted.</span>,
+      <span><code>let</code> can't be redeclared.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>Which of the following is TRUE about the <code>this</code> keyword?</p>,
+    "question": <span>Which of the following is TRUE about the <code>this</code> keyword?</span>,
     "answers": [
-      <p>If a method is called, <code>this</code> refers to the object that the method is a property of. If the <code>new</code> keyword is used, <code>this</code> is the new object instance.</p>,
-      <p>If <code>call</code>, <code>apply</code> or <code>bind</code> are used, <code>this</code> is the object that's passed in as the argument.</p>,
-      <p>If none of the above conditions are met, <code>this</code> refers to the global object (<code>window</code> in the browser in non-strict mode; <code>global</code> in Node).</p>,
-      <p>All of the above.</p>
+      <span>If a method is called, <code>this</code> refers to the object that the method is a property of. If the <code>new</code> keyword is used, <code>this</code> is the new object instance.</span>,
+      <span>If <code>call</code>, <code>apply</code> or <code>bind</code> are used, <code>this</code> is the object that's passed in as the argument.</span>,
+      <span>If none of the above conditions are met, <code>this</code> refers to the global object (<code>window</code> in the browser in non-strict mode; <code>global</code> in Node).</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>Which of the following is something to look out for when using arrow functions?</p>,
+    "question": <span>Which of the following is something to look out for when using arrow functions?</span>,
     "answers": [
-      <p>An arrow function receives the <code>this</code> value of its surrounding lexical scope at the time it was created; it behaves as if it had been created using <code>fn.bind(this)</code>.</p>,
-      <p>If used in an event listener attached to a DOM element, the <code>this</code> variable will refer to the parent (usually the window) object rather than the element you're targeting.</p>,
-      <p>An arrow function can't be used as a constructor.</p>,
-      <p>All of the above.</p>
+      <span>An arrow function receives the <code>this</code> value of its surrounding lexical scope at the time it was created; it behaves as if it had been created using <code>fn.bind(this)</code>.</span>,
+      <span>If used in an event listener attached to a DOM element, the <code>this</code> variable will refer to the parent (usually the window) object rather than the element you're targeting.</span>,
+      <span>An arrow function can't be used as a constructor.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>Which of the following methods can be used to organize/encapsulate code?</p>,
+    "question": <span>Which of the following methods can be used to organize/encapsulate code?</span>,
     "answers": [
-      <p>The module pattern in ES5 or Module Import Export in ES6.</p>,
-      <p>An Immediately Invoked Function Expression.</p>,
-      <p>OO or Objects Linked to Other Objects</p>,
-      <p>All of the above.</p>
+      <span>The module pattern in ES5 or Module Import Export in ES6.</span>,
+      <span>An Immediately Invoked Function Expression.</span>,
+      <span>OO or Objects Linked to Other Objects</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What's an example of a practical use case for recursion?</p>,
+    "question": <span>What's an example of a practical use case for recursion?</span>,
     "answers": [
-      <p>Traversing a tree (e.g., Walking the DOM).</p>,
-      <p>Flattening a deeply nested array.</p>,
-      <p>Deep freezing a deeply nested object.</p>,
-      <p>All of the above.</p>
+      <span>Traversing a tree (e.g., Walking the DOM).</span>,
+      <span>Flattening a deeply nested array.</span>,
+      <span>Deep freezing a deeply nested object.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   },
   {
-    "question": <p>What's the difference between <code>=</code>, <code>==</code>, and <code>===</code>?</p>,
+    "question": <span>What's the difference between <code>=</code>, <code>==</code>, and <code>===</code>?</span>,
     "answers": [
-      <p><code>=</code> is the basic assignment operator. It assigns the value of its right operand to its left operand.</p>,
-      <p><code>==</code> compares two values for equality AFTER converting both values to a common type.</p>,
-      <p><code>===</code> is used for strict equality. It checks for equality of both value AND type.</p>,
-      <p>All of the above.</p>
+      <span><code>=</code> is the basic assignment operator. It assigns the value of its right operand to its left operand.</span>,
+      <span><code>==</code> compares two values for equality AFTER converting both values to a common type.</span>,
+      <span><code>===</code> is used for strict equality. It checks for equality of both value AND type.</span>,
+      <span>All of the above.</span>
     ],
     "correct": "All of the above."
   }

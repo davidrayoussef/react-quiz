@@ -40,14 +40,15 @@ class QuizApp extends Component {
   handleAnswerClick(e) {
     const { questions, step, userAnswers } = this.state;
     const isCorrect = questions[0].correct === e.target.textContent;
+    console.log(e.target);
     const answersFromUser = userAnswers.slice();
     const currentStep = step - 1;
     const tries = answersFromUser[currentStep].tries;
 
-    if (isCorrect && e.target.nodeName === 'P') {
-      document.querySelector('.question:first-child').style.pointerEvents = 'none';
+    if (isCorrect && e.target.nodeName === 'LI') {
+      e.target.parentNode.style.pointerEvents = 'none';
 
-      e.target.parentNode.classList.add('right');
+      e.target.classList.add('right');
 
       answersFromUser[currentStep] = {
         tries: tries + 1
@@ -87,9 +88,9 @@ class QuizApp extends Component {
 
     }
 
-    else if (e.target.nodeName === 'P') {
+    else if (e.target.nodeName === 'LI') {
       e.target.style.pointerEvents = 'none';
-      e.target.parentNode.classList.add('wrong');
+      e.target.classList.add('wrong');
 
       answersFromUser[currentStep] = {
         tries: tries + 1

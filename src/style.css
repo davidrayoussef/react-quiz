@@ -41,6 +41,10 @@ p {
   margin: 0;
 }
 
+span {
+  pointer-events: none;
+}
+
 code {
   font-family: monospace;
   font-size: .8em;
@@ -85,18 +89,15 @@ code {
   padding-left: 1.2em;
 }
 
-.question-answers li {
-  list-style-type: lower-alpha;
-  margin-bottom: .2em;
-}
-
 .question-answer {
+  list-style-type: lower-alpha;
   cursor: pointer;
+  padding: .3em;
+  margin-bottom: .3em;
   border: 5px solid transparent;
 }
 
-.question-answer p {
-  padding: .4em .3em;
+.question-answer span {
   line-height: 1.3;
 }
 
@@ -158,7 +159,6 @@ code {
 }
 
 .wrong {
-  color: #333;
   background: rgba(236,100,75,.5);
   animation: shake 0.5s cubic-bezier(.35,.05,.20,.99) both;
 }
@@ -169,16 +169,16 @@ code {
 
 @keyframes shake {
   10%, 90% {
-    transform: translate3d(-1px, 0, 0);
+    transform: translateX(-1px);
   }
   20%, 80% {
-    transform: translate3d(1px, 0, 0);
+    transform: translateX(1px);
   }
   30%, 50%, 70% {
-    transform: translate3d(-2px, 0, 0);
+    transform: translateX(-2px);
   }
   45%, 55% {
-    transform: translate3d(2px, 0, 0);
+    transform: translateX(2px);
   }
 }
 
