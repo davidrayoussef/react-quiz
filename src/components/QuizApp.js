@@ -21,6 +21,22 @@ class QuizApp extends Component {
     this.nextStep = this.nextStep.bind(this);
   }
 
+  componentWillMount() {
+    const { totalQuestions } = this.props;
+    const maxQuestions = Math.min(totalQuestions, questions.length);
+    const QUESTIONS = shuffleQuestions(questions, maxQuestions);
+
+    this.setState({
+      questions: QUESTIONS,
+      maxQuestions: maxQuestions,
+      userAnswers: QUESTIONS.map(() => {
+        return {
+          tries: 0
+        }
+      })
+    });
+  }
+
   handleAnswerClick(e) {
     const { questions, step, userAnswers } = this.state;
     const isCorrect = questions[0].correct === e.target.textContent;
@@ -110,46 +126,25 @@ class QuizApp extends Component {
     window.location.reload();
   }
 
-  componentWillMount() {
-    const { totalQuestions } = this.props;
-    const maxQuestions = totalQuestions <= questions.length ?  totalQuestions : questions.length
-    const QUESTIONS = shuffleQuestions(questions, maxQuestions);
-
-    this.setState({
-      questions: QUESTIONS,
-      maxQuestions: maxQuestions,
-      userAnswers: QUESTIONS.map(() => {
-        return {
-          tries: 0
-        }
-      })
-    });
-  }
-
   render() {
     const { step, questions, userAnswers, maxQuestions, score } = this.state;
-    return (
-      <div>
-        {(() => {
-          if (step >= maxQuestions + 1) {
-            return (
-              <Results
-                score={score}
-                restartQuiz={this.restartQuiz}
-                userAnswers={userAnswers}
-              />
-            );
-          } else return (
-            <Quiz
-              step={step}
-              questions={questions}
-              totalQuestions={maxQuestions}
-              score={score}
-              handleAnswerClick={this.handleAnswerClick}
-            />
-          );
-        })()}
-      </div>
+
+    if (step >= maxQuestions + 1) {
+      return (
+        <Results
+          score={score}
+          restartQuiz={this.restartQuiz}
+          userAnswers={userAnswers}
+        />
+      );
+    } else return (
+      <Quiz
+        step={step}
+        questions={questions}
+        totalQuestions={maxQuestions}
+        score={score}
+        handleAnswerClick={this.handleAnswerClick}
+      />
     );
   }
 }
