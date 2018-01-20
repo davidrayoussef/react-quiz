@@ -5,19 +5,14 @@ import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
 import { questions } from '../data/quiz-data';
 
-const QUESTIONS = shuffleQuestions(questions);
-
 class QuizApp extends Component {
   constructor(props) {
     super();
 
     this.state = {
-      questions: QUESTIONS,
-      userAnswers: QUESTIONS.map(question => {
-        return {
-          tries: 0
-        }
-      }),
+      questions:  [],
+      userAnswers: [],
+      maxQuestions: 0,
       step: 1,
       score: 0
     };
@@ -115,13 +110,28 @@ class QuizApp extends Component {
     window.location.reload();
   }
 
-  render() {
+  componentWillMount() {
     const { totalQuestions } = this.props;
-    const { step, questions, userAnswers, score } = this.state;
+    const maxQuestions = totalQuestions <= questions.length ?  totalQuestions : questions.length
+    const QUESTIONS = shuffleQuestions(questions, maxQuestions);
+
+    this.setState({
+      questions: QUESTIONS,
+      maxQuestions: maxQuestions,
+      userAnswers: QUESTIONS.map(() => {
+        return {
+          tries: 0
+        }
+      })
+    });
+  }
+
+  render() {
+    const { step, questions, userAnswers, maxQuestions, score } = this.state;
     return (
       <div>
         {(() => {
-          if (step >= totalQuestions + 1) {
+          if (step >= maxQuestions + 1) {
             return (
               <Results
                 score={score}
@@ -133,7 +143,7 @@ class QuizApp extends Component {
             <Quiz
               step={step}
               questions={questions}
-              totalQuestions={totalQuestions}
+              totalQuestions={maxQuestions}
               score={score}
               handleAnswerClick={this.handleAnswerClick}
             />
@@ -145,7 +155,7 @@ class QuizApp extends Component {
 }
 
 QuizApp.defaultProps = {
-  totalQuestions: QUESTIONS.length
+  totalQuestions: questions.length
 };
 
 QuizApp.propTypes = {
