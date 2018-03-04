@@ -64,7 +64,7 @@ export const questions = [
   {
     "question": <span>How do objects inherit methods in JavaScript?</span>,
     "answers": [
-      <span>With <code>Object.create</code>.</span>,
+      <span>With <code>Object.create</code> or <code>Object.setPrototypeOf</code>.</span>,
       <span>With <code>class Sub extends Super</code> in ES2015.</span>,
       <span>Using <code>Parent.prototype.method.call</code> inside <code>Child.prototype.method</code>.</span>,
       <span>All of the above.</span>
@@ -330,5 +330,25 @@ export const questions = [
       <span>All of the above.</span>
     ],
     "correct": "All of the above."
+  },
+  {
+    "question": <span>Which of the following is true about passing by value vs reference?</span>,
+    "answers": [
+      <span>Objects, arrays, and functions are passed by reference.</span>,
+      <span>string, number, boolean, symbol, null and undefined are passed by value.</span>,
+      <span>Primitive types are passed by value and non-primitive types are passed by reference.</span>,
+      <span>All of the above.</span>
+    ],
+    "correct": "All of the above."
+  },
+  {
+    "question": <span>What is a <code>static</code> method?</span>,
+    "answers": [
+      <span>A function that exists on an instance, not a class.</span>,
+      <span>A method that only takes one argument.</span>,
+      <span>A function that exists on a class, not an instance.</span>,
+      <span>None of the above.</span>
+    ],
+    "correct": "A function that exists on a class, not an instance."
   }
 ];
