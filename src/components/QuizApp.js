@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Quiz from './Quiz';
+import Modal from './Modal';
 import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
 import { questions } from '../data/quiz-data';
 
 class QuizApp extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
@@ -14,11 +15,17 @@ class QuizApp extends Component {
       userAnswers: [],
       maxQuestions: 0,
       step: 1,
-      score: 0
+      score: 0,
+      modal: {
+        state: 'hide',
+        praise: '',
+        points: ''
+      }
     };
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
     this.nextStep = this.nextStep.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
 
   componentWillMount() {
@@ -40,49 +47,24 @@ class QuizApp extends Component {
   handleAnswerClick(e) {
     const { questions, step, userAnswers } = this.state;
     const isCorrect = questions[0].correct === e.target.textContent;
-    console.log(e.target);
-    const answersFromUser = userAnswers.slice();
     const currentStep = step - 1;
-    const tries = answersFromUser[currentStep].tries;
+    const tries = userAnswers[currentStep].tries;
 
     if (isCorrect && e.target.nodeName === 'LI') {
+      // Prevent other answers from being clicked after correct answer is clicked
       e.target.parentNode.style.pointerEvents = 'none';
 
       e.target.classList.add('right');
 
-      answersFromUser[currentStep] = {
+      userAnswers[currentStep] = {
         tries: tries + 1
       };
 
       this.setState({
-        userAnswers: answersFromUser
+        userAnswers: userAnswers
       });
 
-      setTimeout(() => {
-        const praise = document.querySelector('.praise');
-        const bonus = document.querySelector('.bonus');
-
-        if (tries === 0) {
-          praise.textContent = '1st Try!';
-          bonus.textContent = '+10';
-        }
-        if (tries === 1) {
-          praise.textContent = '2nd Try!';
-          bonus.textContent = '+5';
-        }
-        if (tries === 2) {
-          praise.textContent = 'Correct!';
-          bonus.textContent = '+2';
-        }
-        if (tries === 3) {
-          praise.textContent = 'Correct!';
-          bonus.textContent = '+1';
-        }
-
-        document.querySelector('.correct-modal').classList.add('modal-enter');
-        document.querySelector('.bonus').classList.add('show');
-
-      }, 750);
+      setTimeout(() => this.showModal(tries), 750);
 
       setTimeout(this.nextStep, 2750);
 
@@ -92,20 +74,54 @@ class QuizApp extends Component {
       e.target.style.pointerEvents = 'none';
       e.target.classList.add('wrong');
 
-      answersFromUser[currentStep] = {
+      userAnswers[currentStep] = {
         tries: tries + 1
       };
 
       this.setState({
-        userAnswers: answersFromUser
+        userAnswers: userAnswers
       });
 
     }
   }
 
+  showModal(tries) {
+    let praise;
+    let points;
+
+    switch (tries) {
+      case 0: {
+        praise = '1st Try!';
+        points = '+10';
+        break;
+      }
+      case 1: {
+        praise = '2nd Try!';
+        points = '+5';
+        break;
+      }
+      case 2: {
+        praise = 'Correct!';
+        points = '+2';
+        break;
+      }
+      default: {
+        praise = 'Correct!';
+        points = '+1';
+      }
+    }
+
+    this.setState({
+      modal: {
+        state: 'show',
+        praise,
+        points
+      }
+    });
+
+  }
+
   nextStep() {
-    document.querySelector('.correct-modal').classList.remove('modal-enter');
-    document.querySelector('.bonus').classList.remove('show');
     const { questions, userAnswers, step, score } = this.state;
     const restOfQuestions = questions.slice(1);
     const currentStep = step - 1;
@@ -119,7 +135,10 @@ class QuizApp extends Component {
         if (tries === 3) return score + 2;
         return score + 1;
       })(),
-      questions: restOfQuestions
+      questions: restOfQuestions,
+      modal: {
+        state: 'hide'
+      }
     });
   }
 
@@ -128,7 +147,7 @@ class QuizApp extends Component {
   }
 
   render() {
-    const { step, questions, userAnswers, maxQuestions, score } = this.state;
+    const { step, questions, userAnswers, maxQuestions, score, modal } = this.state;
 
     if (step >= maxQuestions + 1) {
       return (
@@ -139,13 +158,16 @@ class QuizApp extends Component {
         />
       );
     } else return (
-      <Quiz
-        step={step}
-        questions={questions}
-        totalQuestions={maxQuestions}
-        score={score}
-        handleAnswerClick={this.handleAnswerClick}
-      />
+      <div>
+        <Quiz
+          step={step}
+          questions={questions}
+          totalQuestions={maxQuestions}
+          score={score}
+          handleAnswerClick={this.handleAnswerClick}
+        />
+        { modal.state === 'show' && <Modal modal={modal} /> }
+      </div>
     );
   }
 }

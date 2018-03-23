@@ -18,10 +18,7 @@ const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick }) => 
           <div className="description">points</div>
         </div>
       </header>
-      <div className="correct-modal">
-        <div className="praise">Correct!</div>
-        <div className="bonus"></div>
-      </div>
+
       <div className="questions">
         <QuestionList
           questions={questions}

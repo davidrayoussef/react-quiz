@@ -213,17 +213,9 @@ code {
   animation: modal-enter 2.3s ease-in both;
 }
 
-.praise, .bonus {
+.praise, .points {
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
-}
-
-.bonus {
-  display: none;
-}
-
-.bonus.show {
-  display: block;
 }
 
 @keyframes modal-enter {
