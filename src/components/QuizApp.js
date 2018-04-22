@@ -7,42 +7,49 @@ import shuffleQuestions from '../helpers/shuffleQuestions';
 import { questions } from '../data/quiz-data';
 
 class QuizApp extends Component {
-  constructor() {
-    super();
+  state = {
+    questions:  [],
+    userAnswers: [],
+    totalQuestions: 0,
+    step: 1,
+    score: 0,
+    modal: {
+      state: 'hide',
+      praise: '',
+      points: ''
+    }
+  };
 
-    this.state = {
-      questions:  [],
-      userAnswers: [],
-      maxQuestions: 0,
-      step: 1,
-      score: 0,
-      modal: {
-        state: 'hide',
-        praise: '',
-        points: ''
-      }
-    };
+  static propTypes = {
+    totalQuestions: PropTypes.number.isRequired
+  };
 
-    this.handleAnswerClick = this.handleAnswerClick.bind(this);
-    this.showModal = this.showModal.bind(this);
-    this.nextStep = this.nextStep.bind(this);
-    this.restartQuiz = this.restartQuiz.bind(this);
-  }
+  static getInitialState(totalQuestions) {
+    totalQuestions = Math.min(totalQuestions, questions.length);
+    const QUESTIONS = shuffleQuestions(questions).slice(0, totalQuestions);
 
-  componentWillMount() {
-    const { totalQuestions } = this.props;
-    const maxQuestions = Math.min(totalQuestions, questions.length);
-    const QUESTIONS = shuffleQuestions(questions, maxQuestions);
-
-    this.setState({
+    return {
       questions: QUESTIONS,
-      maxQuestions: maxQuestions,
+      totalQuestions: totalQuestions,
       userAnswers: QUESTIONS.map(() => {
         return {
           tries: 0
         }
       })
-    });
+    };
+  }
+
+  static getDerivedStateFromProps({ totalQuestions }) {
+    return QuizApp.getInitialState(totalQuestions);
+  }
+
+  constructor() {
+    super();
+
+    this.handleAnswerClick = this.handleAnswerClick.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.nextStep = this.nextStep.bind(this);
+    this.restartQuiz = this.restartQuiz.bind(this);
   }
 
   handleAnswerClick(e) {
@@ -68,7 +75,6 @@ class QuizApp extends Component {
       setTimeout(() => this.showModal(tries), 750);
 
       setTimeout(this.nextStep, 2750);
-
     }
 
     else if (e.target.nodeName === 'LI') {
@@ -82,7 +88,6 @@ class QuizApp extends Component {
       this.setState({
         userAnswers: userAnswers
       });
-
     }
   }
 
@@ -146,14 +151,15 @@ class QuizApp extends Component {
   restartQuiz() {
     this.setState({
       step: 1,
-      score: 0
-    }, () => this.componentWillMount());
+      score: 0,
+      ...QuizApp.getInitialState(this.props.totalQuestions)
+    });
   }
 
   render() {
-    const { step, questions, userAnswers, maxQuestions, score, modal } = this.state;
+    const { step, questions, userAnswers, totalQuestions, score, modal } = this.state;
 
-    if (step >= maxQuestions + 1) {
+    if (step >= totalQuestions + 1) {
       return (
         <Results
           score={score}
@@ -166,7 +172,7 @@ class QuizApp extends Component {
         <Quiz
           step={step}
           questions={questions}
-          totalQuestions={maxQuestions}
+          totalQuestions={totalQuestions}
           score={score}
           handleAnswerClick={this.handleAnswerClick}
         />
@@ -175,13 +181,5 @@ class QuizApp extends Component {
     );
   }
 }
-
-QuizApp.defaultProps = {
-  totalQuestions: questions.length
-};
-
-QuizApp.propTypes = {
-  totalQuestions: PropTypes.number.isRequired
-};
 
 export default QuizApp;

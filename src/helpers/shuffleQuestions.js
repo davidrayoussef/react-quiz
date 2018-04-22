@@ -1,7 +1,5 @@
-const shuffleQuestions = (arr, limit = arr.length) => {
-  return arr
-    .sort((a,b) => Math.random() < .5 ? 1 : -1)
-    .slice(0, limit);
+const shuffleQuestions = (arr) => {
+  return arr.sort((a,b) => Math.random() < .5 ? 1 : -1);
 };
 
 export default shuffleQuestions;
