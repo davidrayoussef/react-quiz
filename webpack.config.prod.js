@@ -42,18 +42,6 @@ module.exports = {
 				minifyURLs: true
 			}
 		}),
-		new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' }),
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				screw_ie8: true
-			},
-			mangle: {
-				screw_ie8: true
-			},
-			output: {
-				comments: false,
-				screw_ie8: true
-			}
-		})
+		new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' })
 	]
 };
