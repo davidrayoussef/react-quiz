@@ -41,6 +41,11 @@ module.exports = {
     }
   },
 
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended'
+  ],
+
   settings: {
     'import/ignore': [
       'node_modules',
@@ -55,11 +60,14 @@ module.exports = {
   },
 
   rules: {
+    'react/jsx-key': 'off',
+    'react/no-unescaped-entities': 'off',
+
     // http://eslint.org/docs/rules/
     'array-callback-return': 'warn',
     'default-case': ['warn', { commentPattern: '^no default$' }],
     'dot-location': ['warn', 'property'],
-    eqeqeq: ['warn', 'allow-null'],
+    'eqeqeq': ['warn', 'allow-null'],
     'guard-for-in': 'warn',
     'new-parens': 'warn',
     'no-array-constructor': 'warn',
@@ -120,8 +128,8 @@ module.exports = {
     'no-self-compare': 'warn',
     'no-sequences': 'warn',
     'no-shadow-restricted-names': 'warn',
-    'no-sparse-arrays': 'warn',
     'no-this-before-super': 'warn',
+    'no-sparse-arrays': 'warn',
     'no-throw-literal': 'warn',
     'no-undef': 'warn',
     'no-unexpected-multiline': 'warn',

@@ -13,13 +13,14 @@ module.exports = {
 	},
 	module: {
 		rules: [
-      {
+			{
+				enforce: 'pre',
         test: /\.js$/,
-        enforce: 'pre',
-        loader: 'eslint-loader',
-        options: {
-          emitError: true,
-        }
+				exclude: /node_modules/,
+				use: [
+          'babel-loader',
+          'eslint-loader',
+        ]
       },
 			{
 				test: /\.js$/,
