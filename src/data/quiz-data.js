@@ -9,7 +9,7 @@ export const questions = [
       <span>Reflows compute layout, are more performance critical, and occur when elements are inserted, removed, moved, animated, etc.</span>,
       <span>The previous two answers are correct.</span>
     ],
-    "correct": "Reflows compute layout, are more performance critical, and occur when elements are inserted, removed, moved, animated, etc."
+    "correct": "The previous two answers are correct."
   },
   {
     "question": <span>What are the three types of JavaScript errors?</span>,
