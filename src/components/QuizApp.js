@@ -24,8 +24,9 @@ class QuizApp extends Component {
     };
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
-    this.nextStep = this.nextStep.bind(this);
     this.showModal = this.showModal.bind(this);
+    this.nextStep = this.nextStep.bind(this);
+    this.restartQuiz = this.restartQuiz.bind(this);
   }
 
   componentWillMount() {
@@ -143,7 +144,10 @@ class QuizApp extends Component {
   }
 
   restartQuiz() {
-    window.location.reload();
+    this.setState({
+      step: 1,
+      score: 0
+    }, () => this.componentWillMount());
   }
 
   render() {
