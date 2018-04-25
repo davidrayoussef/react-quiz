@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QuestionList from './QuestionList';
 
-const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick }) => {
+const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick, handleEnterPress }) => {
   return (
     <div className="wrapper">
       <header>
@@ -23,6 +23,7 @@ const Quiz = ({ step, questions, totalQuestions, score, handleAnswerClick }) => 
         <QuestionList
           questions={questions}
           handleAnswerClick={handleAnswerClick}
+          handleEnterPress={handleEnterPress}
         />
       </div>
     </div>
@@ -34,7 +35,8 @@ Quiz.propTypes = {
   questions: PropTypes.array.isRequired,
   totalQuestions: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
-  handleAnswerClick: PropTypes.func.isRequired
+  handleAnswerClick: PropTypes.func.isRequired,
+  handleEnterPress: PropTypes.func.isRequired
 };
 
 export default Quiz;

@@ -154,7 +154,6 @@ code {
 
 .results-container a:active, {
   background: rgba(255,255,255,.5);
-  outline: none;
   top: -2px;
 }
 
@@ -266,6 +265,10 @@ code {
 
   .question-answer:hover {
     border-color: rgba(0,0,0,.5);
+  }
+
+  .question-answer:focus {
+    outline: gray solid 1px;
   }
 
   .correct-modal {

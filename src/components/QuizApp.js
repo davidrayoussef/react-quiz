@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import Quiz from './Quiz';
 import Modal from './Modal';
@@ -47,6 +47,7 @@ class QuizApp extends Component {
     super();
 
     this.handleAnswerClick = this.handleAnswerClick.bind(this);
+    this.handleEnterPress = this.handleEnterPress.bind(this);
     this.showModal = this.showModal.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.restartQuiz = this.restartQuiz.bind(this);
@@ -88,6 +89,12 @@ class QuizApp extends Component {
       this.setState({
         userAnswers: userAnswers
       });
+    }
+  }
+
+  handleEnterPress(e) {
+    if (e.keyCode === 13) {
+      this.handleAnswerClick(e);
     }
   }
 
@@ -168,16 +175,17 @@ class QuizApp extends Component {
         />
       );
     } else return (
-      <div>
+      <Fragment>
         <Quiz
           step={step}
           questions={questions}
           totalQuestions={totalQuestions}
           score={score}
           handleAnswerClick={this.handleAnswerClick}
+          handleEnterPress={this.handleEnterPress}
         />
         { modal.state === 'show' && <Modal modal={modal} /> }
-      </div>
+      </Fragment>
     );
   }
 }
