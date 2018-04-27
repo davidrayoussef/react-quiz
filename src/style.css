@@ -37,6 +37,10 @@ header {
   padding-top: 20px;
 }
 
+ul {
+  padding: 0;  
+}
+
 p {
   margin: 0;
 }
