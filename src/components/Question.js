@@ -14,8 +14,8 @@ const Question = ({ question, answers, handleAnswerClick, handleEnterPress }) =>
             <Answer
               key={JSON.stringify(answer.props.children)}
               answer={answer}
-              handleAnswerClick={handleAnswerClick}
-              handleEnterPress={handleEnterPress}
+              handleAnswerClick={handleAnswerClick(index)}
+              handleEnterPress={handleEnterPress(index)}
             />
           );
         })}

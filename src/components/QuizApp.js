@@ -4,7 +4,7 @@ import Quiz from './Quiz';
 import Modal from './Modal';
 import Results from './Results';
 import shuffleQuestions from '../helpers/shuffleQuestions';
-import { questions } from '../data/quiz-data';
+import QUESTION_DATA from '../data/quiz-data';
 
 class QuizApp extends Component {
   state = {
@@ -25,8 +25,8 @@ class QuizApp extends Component {
   };
 
   static getInitialState(totalQuestions) {
-    totalQuestions = Math.min(totalQuestions, questions.length);
-    const QUESTIONS = shuffleQuestions(questions).slice(0, totalQuestions);
+    totalQuestions = Math.min(totalQuestions, QUESTION_DATA.length);
+    const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(0, totalQuestions);
 
     return {
       questions: QUESTIONS,
@@ -43,19 +43,9 @@ class QuizApp extends Component {
     return QuizApp.getInitialState(totalQuestions);
   }
 
-  constructor() {
-    super();
-
-    this.handleAnswerClick = this.handleAnswerClick.bind(this);
-    this.handleEnterPress = this.handleEnterPress.bind(this);
-    this.showModal = this.showModal.bind(this);
-    this.nextStep = this.nextStep.bind(this);
-    this.restartQuiz = this.restartQuiz.bind(this);
-  }
-
-  handleAnswerClick(e) {
+  handleAnswerClick = (index) => (e) => {
     const { questions, step, userAnswers } = this.state;
-    const isCorrect = questions[0].correct === e.target.textContent;
+    const isCorrect = questions[0].correct === index;
     const currentStep = step - 1;
     const tries = userAnswers[currentStep].tries;
 
@@ -90,15 +80,15 @@ class QuizApp extends Component {
         userAnswers: userAnswers
       });
     }
-  }
+  };
 
-  handleEnterPress(e) {
+  handleEnterPress = (index) => (e) => {
     if (e.keyCode === 13) {
-      this.handleAnswerClick(e);
+      this.handleAnswerClick(index)(e);
     }
-  }
+  };
 
-  showModal(tries) {
+  showModal = (tries) => {
     let praise;
     let points;
 
@@ -131,10 +121,9 @@ class QuizApp extends Component {
         points
       }
     });
+  };
 
-  }
-
-  nextStep() {
+  nextStep = () => {
     const { questions, userAnswers, step, score } = this.state;
     const restOfQuestions = questions.slice(1);
     const currentStep = step - 1;
@@ -142,25 +131,29 @@ class QuizApp extends Component {
 
     this.setState({
       step: step + 1,
-      score: (() => {
-        if (tries === 1) return score + 10;
-        if (tries === 2) return score + 5;
-        if (tries === 3) return score + 2;
-        return score + 1;
-      })(),
+      score: this.updateScore(tries, score),
       questions: restOfQuestions,
       modal: {
         state: 'hide'
       }
     });
-  }
+  };
 
-  restartQuiz() {
+  restartQuiz = () => {
     this.setState({
       step: 1,
       score: 0,
       ...QuizApp.getInitialState(this.props.totalQuestions)
     });
+  };
+
+  updateScore(tries, score) {
+    switch (tries) {
+      case 1: return score + 10;
+      case 2: return score + 5;
+      case 3: return score + 2;
+      default: return score + 1;
+    }
   }
 
   render() {
