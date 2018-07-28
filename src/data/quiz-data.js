@@ -350,6 +350,26 @@ const QUESTION_DATA = [
       <span>None of the above.</span>
     ],
     correct: 2
+  },
+  {
+    question: <span>Which of the following is TRUE about the difference between <code>undefined</code> and <code>null</code>.</span>,
+    answers: [
+      <span>A variable is <code>undefined</code> when it's been declared but hasn't been assigned a value.</span>,
+      <span><code>null</code> is purposely assigned as a representation of "no value."</span>,
+      <span><code>undefined</code> is returned when trying to access a non-existant property of an object.</span>,
+      <span>All of the above.</span>
+    ],
+    correct: 3
+  },
+  {
+    question: <span>In React, which of the following is TRUE about the difference between an element and a component?</span>,
+    answers: [
+      <span>A React element is an object representation of a DOM node.</span>, 
+      <span>A component is a <code>class</code> or a <code>function</code>.</span>,
+      <span>A component accepts props and returns a React element.</span>,
+      <span>All of the above.</span>
+    ],
+    correct: 3
   }
 ];
 
