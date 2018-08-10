@@ -1,6 +1,6 @@
 {
   "name": "react-quiz",
-  "version": "1.0.1",
+  "version": "1.10.0",
   "description": "A JavaScript quiz built with React.",
   "main": "main.js",
   "scripts": {

@@ -8,23 +8,14 @@ import QUESTION_DATA from '../data/quiz-data';
 
 class QuizApp extends Component {
   state = {
-    questions:  [],
-    userAnswers: [],
-    totalQuestions: 0,
-    step: 1,
-    score: 0,
-    modal: {
-      state: 'hide',
-      praise: '',
-      points: ''
-    }
+    ...this.getInitialState(this.props.totalQuestions)
   };
 
   static propTypes = {
     totalQuestions: PropTypes.number.isRequired
   };
 
-  static getInitialState(totalQuestions) {
+  getInitialState(totalQuestions) {
     totalQuestions = Math.min(totalQuestions, QUESTION_DATA.length);
     const QUESTIONS = shuffleQuestions(QUESTION_DATA).slice(0, totalQuestions);
 
@@ -35,12 +26,15 @@ class QuizApp extends Component {
         return {
           tries: 0
         }
-      })
+      }),
+      step: 1,
+      score: 0,
+      modal: {
+        state: 'hide',
+        praise: '',
+        points: ''
+      }
     };
-  }
-
-  static getDerivedStateFromProps({ totalQuestions }) {
-    return QuizApp.getInitialState(totalQuestions);
   }
 
   handleAnswerClick = (index) => (e) => {
@@ -139,14 +133,6 @@ class QuizApp extends Component {
     });
   };
 
-  restartQuiz = () => {
-    this.setState({
-      step: 1,
-      score: 0,
-      ...QuizApp.getInitialState(this.props.totalQuestions)
-    });
-  };
-
   updateScore(tries, score) {
     switch (tries) {
       case 1: return score + 10;
@@ -155,6 +141,12 @@ class QuizApp extends Component {
       default: return score + 1;
     }
   }
+
+  restartQuiz = () => {
+    this.setState({
+      ...this.getInitialState(this.props.totalQuestions)
+    });
+  };
 
   render() {
     const { step, questions, userAnswers, totalQuestions, score, modal } = this.state;
