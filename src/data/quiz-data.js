@@ -22,21 +22,21 @@ const QUESTION_DATA = [
     correct: 1
   },
   {
-    question: <span>What is a closure?</span>,
+    question: <span>What's a closure?</span>,
     answers: [
-      <span>A function having access to the variables in the parent scope, even after the parent function has returned.</span>,
+      <span>An inner function that has access to an outer function's variables, even after the outer function has executed.</span>,
       <span>A stateful function; a function that preserves state.</span>,
-      <span>An outer function that returns an inner function that's bound to the outer function's environment.</span>,
+      <span>The combination of a function and the lexical environment within which that function was declared.</span>,
       <span>All of the above.</span>
     ],
     correct: 3
   },
   {
-    question: <span>Where might you use a closure in JavaScript?</span>,
+    question: <span>Where might you find, or how might you use a closure in JavaScript?</span>,
     answers: [
       <span>When currying or implementing partial application.</span>,
       <span>To emulate private methods.</span>,
-      <span>Event handlers and callback functions.</span>,
+      <span>In event handlers, timers, and asynchronous callbacks.</span>,
       <span>All of the above.</span>
     ],
     correct: 3
