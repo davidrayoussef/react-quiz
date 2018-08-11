@@ -370,6 +370,36 @@ const QUESTION_DATA = [
       <span>All of the above.</span>
     ],
     correct: 3
+  },
+  {
+    question: <span>In React, which is TRUE about the difference between controlled components and uncontrolled components?</span>,
+    answers: [
+      <span>With controlled components, form data is handled by React.</span>, 
+      <span>A controlled input accepts its current value as a prop, and a callback to change that value.</span>,
+      <span>With uncontrolled components, form data is handled by the DOM, and input values can be accessed using refs.</span>,
+      <span>All of the above.</span>
+    ],
+    correct: 3
+  },
+  {
+    question: <span>In React, what's the execution order for methods and lifecycle hooks on initial render?</span>,
+    answers: [
+      <span><code>componentDidMount()</code> → <code>render()</code> → <code>getDerivedStateFromProps()</code> → <code>constructor()</code></span>, 
+      <span><code>render()</code> → <code>componentDidMount()</code> → <code>constructor()</code> → <code>getDerivedStateFromProps()</code></span>,
+      <span><code>constructor()</code> → <code>getDerivedStateFromProps()</code> → <code>render()</code> → <code>componentDidMount()</code></span>,
+      <span>None of the above.</span>
+    ],
+    correct: 2
+  },
+  {
+    question: <span>In React, which is TRUE about the difference between a class component, a PureComponent, and a functional component?</span>,
+    answers: [
+      <span>Standard class components have state, lifecycle hooks, and refs.</span>, 
+      <span>A PureComponent is just like a class component, but handles shouldComponentUpdate for you, with a shallow check for changes in props or state. This allows for a performance boost by preventing unnecessary rerenders.</span>,
+      <span>Functional components are presentational; they don't have access to state or lifecycle hooks, and can't use refs.</span>,
+      <span>All of the above.</span>
+    ],
+    correct: 3
   }
 ];
 
